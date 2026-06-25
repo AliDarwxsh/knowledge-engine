@@ -1,0 +1,14 @@
+{
+  "name": "connection-finder",
+  "description": "Nightly 3am. Finds non-obvious connections between recently created/modified notes and the rest of the vault. Strengthens the knowledge graph.",
+  "schedule": "0 3 * * *",
+  "timezone": "user-local",
+  "skill": "vault-link",
+  "prompt": "Run vault-link. Target: notes created or modified in last 7 days. Search entire vault for non-obvious connections. Respect user's permission level (conservative/moderate/aggressive). Generate connection report. Write to wiki/journal/sync-logs/YYYY-MM-DD-link.md.",
+  "delivery": "local",
+  "enabled": true,
+  "model": "inherit",
+  "toolsets": ["file", "terminal", "skills"],
+  "estimated_tokens": 8000,
+  "estimated_cost_usd": 0.04
+}

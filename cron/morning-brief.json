@@ -1,0 +1,14 @@
+{
+  "name": "morning-brief",
+  "description": "Daily 7am context injection. Reads yesterday's vault activity, surfaces open loops, flags attention items.",
+  "schedule": "0 7 * * *",
+  "timezone": "user-local",
+  "skill": "vault-morning-brief",
+  "prompt": "Run vault-morning-brief. Read yesterday's vault activity. Generate the morning brief and write to 11 Timeline/YYYY-MM-DD-morning-brief.md. Deliver chat notification with 4-6 line summary.",
+  "delivery": "all",
+  "enabled": true,
+  "model": "inherit",
+  "toolsets": ["file", "terminal", "skills"],
+  "estimated_tokens": 3000,
+  "estimated_cost_usd": 0.02
+}

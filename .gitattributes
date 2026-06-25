@@ -1,0 +1,23 @@
+# Auto-detect text files and ensure LF line endings
+* text=auto eol=lf
+
+# Shell scripts must be LF
+*.sh text eol=lf
+
+# JSON must be LF
+*.json text eol=lf
+
+# Markdown must be LF
+*.md text eol=lf
+
+# YAML must be LF
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary

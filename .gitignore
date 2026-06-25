@@ -1,0 +1,55 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Obsidian
+.obsidian/
+**/.obsidian/
+.trash/
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Hermes
+.hermes/
+*.pyc
+__pycache__/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary / cache files
+*.tmp
+*.temp
+*.log
+.cache/
+
+# ZIP / archives (keep in sources/ not in repo)
+*.zip
+*.tar.gz
+*.rar
+
+# But allow intentional files
+!scripts/*.sh
+!cron/*.json

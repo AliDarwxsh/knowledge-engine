@@ -1,0 +1,14 @@
+{
+  "name": "inbox-processor",
+  "description": "Every 6 hours, process any unclassified items in 00 Inbox/ via vault-capture. The engine's automated filing system.",
+  "schedule": "0 */6 * * *",
+  "timezone": "user-local",
+  "skill": "vault-capture",
+  "prompt": "Run vault-capture in batch mode. Scan 00 Inbox/ for any .md files without _processed_ prefix. For each, classify, generate frontmatter, find wikilinks, create note in target folder. Move processed items to 00 Inbox/_processed/YYYY-MM-DD/. Report count of items processed.",
+  "delivery": "local",
+  "enabled": true,
+  "model": "inherit",
+  "toolsets": ["file", "terminal", "skills"],
+  "estimated_tokens": 4000,
+  "estimated_cost_usd": 0.03
+}

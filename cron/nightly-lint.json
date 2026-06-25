@@ -1,0 +1,14 @@
+{
+  "name": "nightly-lint",
+  "description": "Nightly 2am health check. Frontmatter, orphans, tag compliance, link rot, contradictions, duplicates, forward references. Reports but never edits.",
+  "schedule": "0 2 * * *",
+  "timezone": "user-local",
+  "skill": "vault-lint",
+  "prompt": "Run vault-lint. Seven audit checks: frontmatter, orphans, tag compliance, link rot, contradictions, duplicates, forward references. Calculate health score. Write scorecard to wiki/journal/sync-logs/YYYY-MM-DD-lint.md. If health drops below 60, deliver chat notification.",
+  "delivery": "local",
+  "enabled": true,
+  "model": "inherit",
+  "toolsets": ["file", "terminal", "skills"],
+  "estimated_tokens": 5000,
+  "estimated_cost_usd": 0.03
+}

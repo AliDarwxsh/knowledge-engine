@@ -1,0 +1,14 @@
+{
+  "name": "weekly-digest",
+  "description": "Sunday 6pm synthesis. Reads the week's notes, identifies themes, generates cross-domain insights, updates synthesis hub.",
+  "schedule": "0 18 * * 0",
+  "timezone": "user-local",
+  "skill": "vault-digest",
+  "prompt": "Run vault-digest. Read all notes from past 7 days. Identify themes. Generate 3-7 cross-domain insights. Surface contradictions and tensions. Write digest to wiki/journal/sync-logs/YYYY-MM-DD-digest.md. Update wiki/synthesis/00-synthesis-engine-hub.md with new insights. Deliver chat summary.",
+  "delivery": "all",
+  "enabled": true,
+  "model": "inherit",
+  "toolsets": ["file", "terminal", "skills"],
+  "estimated_tokens": 12000,
+  "estimated_cost_usd": 0.06
+}
