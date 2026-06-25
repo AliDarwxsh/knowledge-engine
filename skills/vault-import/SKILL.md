@@ -20,6 +20,15 @@ tags: [import, ingestion, chat-export, migration]
 
 ---
 
+## Prerequisites
+
+1. Vault is initialized (`CLAUDE.md` exists at root)
+2. User provides a valid file path or pasted content
+3. `schema/ontology.md` has been read (for tag validation)
+4. `sources/_imports/` directory exists
+
+---
+
 ## Supported Formats
 
 | Format | Detection | Parser |

@@ -19,6 +19,15 @@ tags: [query, search, retrieval, qa]
 
 ---
 
+## Prerequisites
+
+1. Vault is initialized (`CLAUDE.md` exists at root)
+2. Vault contains at least some notes to search against
+3. `schema/ontology.md` has been read (for tag-aware search)
+4. This skill does NOT write — it only reports
+
+---
+
 ## Execution — Five Phases
 
 ### Phase 1: Understand The Query
@@ -137,6 +146,27 @@ This skill:
 | Query matches 0 notes | "Nothing in your vault yet. Want to capture a note on this?" |
 | Query references note that doesn't exist | Check for similar names. "Did you mean [[similar-note]]?" |
 | Query is a yes/no question with no relevant vault content | "Your vault doesn't address this yet. Should I research and add a note?" |
+
+---
+
+## Adversarial Cases
+
+| Case | Response |
+|------|----------|
+| Query is too vague ("What do I know?") | Ask: "Pick a topic: people, projects, principles, or recent notes?" |
+| Query matches 50+ notes | Show top 5 by relevance, ask if user wants to broaden |
+| Query matches 0 notes | "Nothing in your vault yet. Want to capture a note on this?" |
+| Query references note that doesn't exist | Check for similar names. "Did you mean [[similar-note]]?" |
+| Query is a yes/no question with no relevant vault content | "Your vault doesn't address this yet. Should I research and add a note?" |
+
+---
+
+## What This Skill Does NOT Do
+
+- ❌ Never writes to vault (read-only)
+- ❌ Never transmits vault content beyond the configured AI model
+- ❌ Never modifies note content
+- ❌ Never creates or deletes files
 
 ---
 

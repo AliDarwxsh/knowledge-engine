@@ -19,6 +19,15 @@ tags: [lint, audit, health-check, maintenance]
 
 ---
 
+## Prerequisites
+
+1. Vault is initialized (`CLAUDE.md` exists at root)
+2. `schema/CLAUDE.md`, `schema/ontology.md`, `schema/agents.md` have been read
+3. At least 5 notes exist in vault (linting an empty vault produces trivial results)
+4. This skill does NOT write — it only reports
+
+---
+
 ## Execution — Seven Audit Checks
 
 ### Check 1: Frontmatter Completeness
@@ -141,6 +150,18 @@ Proposed notes (≥3 references): <count>
    - ...
 Pending triage (1-2 references): <count>
 ```
+
+---
+
+## Adversarial Cases
+
+| Case | Response |
+|------|----------|
+| Vault is empty (<5 notes) | Report "Insufficient notes to lint" — do not fail |
+| Note has malformed YAML frontmatter | Flag as parse error, skip that check, continue |
+| Duplicate detection timeout (>500 notes) | Sample 500 note pairs, note sampling in report |
+| Broken link detected in MOC | Flag as link rot, do not unlink |
+| Ontology file missing | Halt. "schema/ontology.md not found — cannot validate tags." |
 
 ---
 

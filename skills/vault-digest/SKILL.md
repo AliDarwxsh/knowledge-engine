@@ -19,6 +19,15 @@ tags: [digest, synthesis, weekly, review]
 
 ---
 
+## Prerequisites
+
+1. Vault is initialized (`CLAUDE.md` exists at root)
+2. `schema/ontology.md` and `schema/agents.md` have been read into context
+3. vault-sync has completed at least once (MOCs exist with known structure)
+4. At least one week of notes exists in the vault
+
+---
+
 ## Execution — Five Phases
 
 ### Phase 1: Gather The Week
@@ -85,6 +94,18 @@ Output: "Tensions surfaced this week:
 2. Append new tensions to `wiki/journal/contradictions/` (one note per)
 3. Write the digest to `wiki/journal/sync-logs/YYYY-MM-DD-digest.md`
 4. If permission level allows, also write a digest-summary.md to `11 Timeline/` for quick reference
+
+---
+
+## Adversarial Cases
+
+| Case | Response |
+|------|----------|
+| No notes in vault yet | Refuse. "Nothing to digest. Capture some notes first." |
+| Only 1-2 notes this week | Generate a minimal digest with reduced sections |
+| Vault is enormous (>10,000 notes) | Sample the last 7 days only, note the sample size |
+| Cross-domain insights are weak this week | Acknowledge: "This was a quiet week for connections. Here's what did connect." |
+| Contradiction detected | Surface with both notes cited, do not resolve |
 
 ---
 

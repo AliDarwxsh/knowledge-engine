@@ -19,6 +19,15 @@ tags: [sync, reconcile, maintenance, weekly]
 
 ---
 
+## Prerequisites
+
+1. Vault is initialized (`CLAUDE.md` exists at root)
+2. `00 Inbox/` folder exists (with or without content)
+3. `schema/ontology.md` and `schema/agents.md` have been read
+4. `wiki/` MOC structure exists (created by vault-init)
+
+---
+
 ## Execution — Six Phases
 
 ### Phase 1: Process Inbox
@@ -127,6 +136,19 @@ Deliver a structured sync report:
 ```
 
 Write the full report to `wiki/journal/sync-logs/YYYY-MM-DD-sync.md`.
+
+---
+
+## Adversarial Cases
+
+| Case | Response |
+|------|----------|
+| Inbox is empty | "Nothing to process." — no error |
+| Note already exists in target folder | Skip, log duplicate in sync report |
+| MOC exceeds 100 links | Propose splitting into sub-MOCs; do not auto-execute |
+| Contradiction detected between notes | Create contradiction note, do not resolve |
+| Folder with 0 notes (stale) | Propose archival, do not auto-delete |
+| Same note found in 2+ folders | Flag for deduplication, do not auto-merge |
 
 ---
 
