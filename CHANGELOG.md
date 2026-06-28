@@ -11,6 +11,7 @@ All notable changes to knowledge-engine will be documented in this file.
 ### Fixed
 - **Personal info leak** — removed "Ali Darwish" attribution + "makes money from" monetization paragraph from `docs/architecture.md`. Rewrote to position engine as free, open-source, with optional GitHub Sponsor link.
 - **Personal info leak** — removed "Built by Ali Darwish" from `README.md` footer; replaced with community attribution.
+- **Personal info leak** — removed all personal identifiers (name, email, GitHub username) from `pyproject.toml`, `SECURITY.md`, `README.md`, `docs/`, `scripts/setup.py`, `scripts/setup.sh`, and `.github/dependabot.yml`. Replaced with generic placeholders or community attribution.
 - **Placeholder leaks** — replaced `<user>` with `YOUR_GITHUB_USERNAME` in `README.md` (4 places), `scripts/setup.py` (2 places), `docs/installation-windows.md`. Updated `setup.sh` comment to drop curl-pipe example that referenced the placeholder.
 - **SECURITY.md placeholder** — replaced `your-email@example.com` with reference to GitHub repo "Support" section. Updated GitHub advisory URL placeholder from `OWNER` to `<repo-owner>`.
 - **Duplicate section** — removed second "Adversarial Cases" block in `skills/vault-query/SKILL.md` (was identical to the first).

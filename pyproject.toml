@@ -10,7 +10,7 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
 authors = [
-    {name = "Ali Darwish", email = "Alidarwxsh@gmail.com"}
+    {name = "knowledge-engine contributors"}
 ]
 keywords = ["obsidian", "knowledge-management", "ai", "vault"]
 classifiers = [

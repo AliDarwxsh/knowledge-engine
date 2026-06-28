@@ -40,7 +40,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 # Download: https://obsidian.md (free for personal use)
 
 # 3. Clone this repo
-git clone https://github.com/Alidarwxsh/knowledge-engine.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
 cd knowledge-engine
 
 # 4. Run setup (scaffolds vault, installs skills, schedules cron)
@@ -63,7 +63,7 @@ irm https://hermes-agent.nousresearch.com/install.ps1 | iex
 # Download: https://obsidian.md (free for personal use)
 
 # 3. Clone this repo
-git clone https://github.com/Alidarwxsh/knowledge-engine.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
 cd knowledge-engine
 
 # 4. Run setup
@@ -223,7 +223,7 @@ MIT — do whatever you want with this.
 - ⭐ Star this repo if it's useful
 - 🐛 Issues for bugs and feature requests
 - 💬 Discussions for questions and ideas
-- ☕ [Sponsor on GitHub](https://github.com/sponsors/Alidarwxsh) if you want to support development
+- ☕ [Sponsor on GitHub](https://github.com/sponsors/YOUR_GITHUB_USERNAME) if you want to support development
 
 ---
 

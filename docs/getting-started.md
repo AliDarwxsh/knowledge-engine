@@ -13,7 +13,7 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Alidarwxsh/knowledge-engine.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
 cd knowledge-engine
 ```
 
@@ -136,5 +136,5 @@ vault/
 ## Support
 
 - 📖 [Full Documentation](../README.md)
-- 🐛 [GitHub Issues](https://github.com/Alidarwxsh/knowledge-engine/issues)
-- 💬 [GitHub Discussions](https://github.com/Alidarwxsh/knowledge-engine/discussions)
+- 🐛 [GitHub Issues](https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine/issues)
+- 💬 [GitHub Discussions](https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine/discussions)

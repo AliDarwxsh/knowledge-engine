@@ -17,8 +17,8 @@ Do not open a public issue for a security problem. Public issues are visible to 
 
 Use one of these private channels:
 
-- **GitHub private advisory** (preferred) — open a draft advisory at `https://github.com/AliDarwxsh/knowledge-engine/security/advisories/new`. This keeps the report private until you and the maintainers agree to publish.
-- **Email** — `Alidarwxsh@gmail.com`. Use the subject line `SECURITY: <short summary>`.
+- **GitHub private advisory** (preferred) — open a draft advisory at `https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine/security/advisories/new`. This keeps the report private until you and the maintainers agree to publish.
+- **Email** — `security@example.com`. Use the subject line `SECURITY: <short summary>`.
 
 Include in your report:
 

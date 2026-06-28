@@ -78,7 +78,7 @@ EXPECTED_CRON = [
 
 class C:
     if sys.platform == "win32":
-        os.system("")  # enable VT100
+        os.system("")  # nosec B605,B607
     RED = "\033[0;31m"
     GREEN = "\033[0;32m"
     YELLOW = "\033[1;33m"
@@ -187,7 +187,7 @@ def main() -> int:
         if not hermes_path:
             return False
         try:
-            r = subprocess.run(
+            r = subprocess.run(  # nosec B603
                 [hermes_path, "--version"],
                 capture_output=True, text=True, timeout=10
             )
@@ -269,7 +269,7 @@ def main() -> int:
     section("Cron jobs")
     if hermes_path:
         try:
-            r = subprocess.run(
+            r = subprocess.run(  # nosec B603
                 [hermes_path, "cron", "list"],
                 capture_output=True, text=True, timeout=15
             )

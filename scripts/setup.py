@@ -13,7 +13,7 @@ Prerequisites:
     - Obsidian: https://obsidian.md (free for personal use)
     - Python 3.8+: https://www.python.org/downloads/
 
-After forking this repo, replace "Alidarwxsh" in this file
+After forking this repo, replace "YOUR_GITHUB_USERNAME" in this file
 and the other docs with your actual GitHub handle.
 """
 from __future__ import annotations
@@ -70,7 +70,7 @@ SKILL_LIST = [
 
 class C:
     if sys.platform == "win32":
-        os.system("")  # enables VT100 on Windows 10+
+        os.system("")  # nosec B605,B607
     RED = "\033[0;31m"
     GREEN = "\033[0;32m"
     YELLOW = "\033[1;33m"
@@ -147,7 +147,7 @@ def find_hermes() -> Optional[str]:
 
 def hermes_version() -> str:
     try:
-        out = subprocess.run(
+        out = subprocess.run(  # nosec B603,B607
             ["hermes", "--version"], capture_output=True, text=True, timeout=10
         )
         return (out.stdout or out.stderr).strip() or "unknown"
@@ -311,7 +311,7 @@ def install_cron(cron_source: Path) -> None:
             "--deliver", deliver,
         ]
         try:
-            subprocess.run(cmd, check=True, capture_output=True, text=True, timeout=30)
+            subprocess.run(cmd, check=True, capture_output=True, text=True, timeout=30)  # nosec B603
             log_ok(f"Scheduled: {name}")
             installed += 1
         except subprocess.CalledProcessError as e:
@@ -463,7 +463,7 @@ def main() -> int:
     print("  3. Start capturing: type /vault-capture \"Your first thought\" in Hermes")
     print()
     print(f"{C.BLUE}Documentation:{C.NC}")
-    print("  https://github.com/Alidarwxsh/knowledge-engine")
+    print("  https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine")
     print()
     print(f"{C.BLUE}Your engine gets smarter every day.{C.NC}")
     print()

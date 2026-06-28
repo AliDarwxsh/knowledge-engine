@@ -1,0 +1,12 @@
+# Bandit configuration for knowledge-engine
+# These are known-safe patterns in an installer/verification script
+
+skips:
+  # B404: subprocess import — required for hermes CLI detection and cron scheduling
+  - B404
+  # B605: os.system("") — standard VT100 color enable on Windows, no user input
+  - B605
+  # B607: partial path — hermes is found via shutil.which(), not user input
+  - B607
+  # B603: subprocess.run with hardcoded args — no user input reaches shell
+  - B603
