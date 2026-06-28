@@ -31,7 +31,7 @@ Numbered folders that create a forced workflow order. You navigate and write her
 
 Where AI agents write. Where governance lives.
 
-**`sources/`** — Immutable raw material. ChatGPT exports, Claude conversations, Google Takeout. Never edited. The bedrock of truth.
+**`sources/`** — Immutable raw material. AI chat exports, browser bookmarks, Google Takeout. Never edited. The bedrock of truth.
 
 **`wiki/`** — The knowledge graph. Entities (people, projects, organizations, self), concepts (principles, frameworks, knowledge), synthesis (cross-domain insights), and journal (decisions, timeline, inbox processing).
 

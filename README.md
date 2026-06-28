@@ -1,6 +1,6 @@
 # Knowledge Engine
 
-> **A self-organizing knowledge system. Hermes + Obsidian. Capture. Auto-classify. Query. It gets smarter every day.**
+> **Turn scattered thoughts into a self-organizing knowledge system. 187 structured notes from 342 forgotten AI conversations — automatically.**
 
 ---
 
@@ -12,7 +12,7 @@ It's a vault that holds everything you know, with Hermes sitting on top — read
 
 ## The 30-Second Pitch
 
-- 📥 **Capture once** — Drop thoughts, articles, chat exports. Zero decisions at capture time.
+- 📥 **Capture once** — Drop thoughts, articles, any AI chat export. Zero decisions at capture time.
 - 🧠 **Engine classifies** — Reads your input. Routes it to the right folder. Tags it. Links it to related notes.
 - 🔍 **Query anything** — "What did I write about pricing?" Get answers with citations from your own notes.
 - 🌐 **Graph compounds** — Every note strengthens every other note. The vault learns you over time.
@@ -120,19 +120,19 @@ Sunday 6pm Weekly synthesis — cross-domain insights
 - **Not a SaaS.** You install it locally. You run it locally. You own it.
 - **Not a replacement for Obsidian.** Obsidian is the UI. The engine is the automation.
 - **Not AI-generated nonsense.** Every note goes through the schema's copywriting standards. Quality is enforced.
-- **Not a clone of ChatGPT's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose.
+- **Not a clone of any AI's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose — ChatGPT, Claude, DeepSeek, or local models.
 
 ## The Killer Features
 
 ### 1. AI Chat Import
 
-Have 3,000 ChatGPT conversations you forgot about? `vault-import` extracts decisions, principles, questions, and knowledge from each one. Creates structured notes with source citations. Transforms forgotten chat history into searchable knowledge.
+Have 3,000 AI conversations you forgot about? `vault-import` extracts decisions, principles, questions, and knowledge from any chat export — ChatGPT, Claude, DeepSeek, or any model that supports exports. Creates structured notes with source citations. Transforms forgotten chat history into searchable knowledge.
 
 ```bash
-/vault-import ~/Downloads/chatgpt-export.zip
+/vault-import ~/Downloads/chat-export.zip
 ```
 
-Result: 187 notes created from 342 conversations. Linked to 53 existing notes.
+**Result: 187 notes created from 342 conversations. Linked to 53 existing notes.** That's 55% of your scattered conversations turned into structured, interlinked knowledge — in one command.
 
 ### 2. Auto-Classification
 
@@ -222,23 +222,6 @@ MIT — do whatever you want with this.
 - ☕ [Sponsor on GitHub](https://github.com/sponsors/YOUR_GITHUB_USERNAME) if you want to support development
 
 ---
-
-## Project Status
-
-**Workstreams (v1.1.1)**:
-
-- [x] 10 Hermes skills written (~2,500 lines, YAML frontmatter validated)
-- [x] 5 cron job definitions (cron/*.json) + 6 Windows equivalents (cron/windows/*.ps1)
-- [x] Cross-platform Python installer (`scripts/setup.py`, `verify.py`) + Windows `.cmd` wrappers + POSIX `.sh` wrappers
-- [x] Cross-platform CI matrix (`.github/workflows/test.yml`) on ubuntu/macos/windows
-- [x] Architecture, daily workflow, AI models, customization, FAQ, Windows install docs
-- [x] SECURITY.md + `scripts/sanitize-check.sh` personal-data guardrails
-- [x] Polished README with cross-platform Quick Start
-- [x] Vault template (50+ files, dual-layer architecture, governance, templates, workflows)
-- [x] All scripts pass syntax validation; all cron JSON valid; all skill frontmatter parse
-- [x] Placeholder-free public docs (`YOUR_GITHUB_USERNAME` template only)
-- [ ] End-to-end test against real vault (deferred — LLM execution non-deterministic)
-- [ ] GitHub repo created and published
 
 ---
 

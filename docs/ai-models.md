@@ -151,9 +151,9 @@ This keeps costs low while using better models where they matter.
 
 20 captures + 1 digest + 1 lint = ~$0.05/day = **$1.50/month**
 
-### One-Time Import
+**One-Time Import**
 
-3,000 ChatGPT conversations = ~$3-10 one-time
+3,000 AI conversations = ~$3-10 one-time
 
 ## Switching Models Mid-Stream
 
