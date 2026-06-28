@@ -84,7 +84,7 @@ While writing an idea note, you mention "[[Project X]] depends on this." Project
 
 While writing two unrelated notes, you realize a synthesis will be possible. You write "see [[Cross-Domain Pattern Y]]."
 
-**Resolution:** Either create the synthesis note (in [[wiki/synthesis/|wiki/synthesis/]]) or remove the reference if the pattern does not emerge.
+**Resolution:** Either create the synthesis note (in [[wiki/synthesis|wiki/synthesis]]) or remove the reference if the pattern does not emerge.
 
 ---
 

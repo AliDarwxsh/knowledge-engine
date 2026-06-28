@@ -129,7 +129,7 @@ After promotion, the literature note stays in `09 Research Archive/` as a citati
 
 ## Source Linkage
 
-Every literature note MUST link to its source in [[sources/README|sources/]]:
+Every literature note MUST link to its source in [[sources/README|sources]]:
 
 ```markdown
 ## Source

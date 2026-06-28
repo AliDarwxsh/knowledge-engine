@@ -15,7 +15,7 @@ tags: [prompts, ai, llm, patterns, human-layer]
 
 This folder holds the operator's **curated AI prompts and interaction patterns** — tested prompts that consistently produce useful output. A prompt in this folder has been used at least three times and has a known failure mode.
 
-The Human Layer (08 Prompt Library) holds narrative prompt notes. AI-callable commands live in [[workflows/\|workflows/]].
+The Human Layer (08 Prompt Library) holds narrative prompt notes. AI-callable commands live in [[workflows/\|workflows]].
 
 ---
 
@@ -81,7 +81,7 @@ Every prompt note contains:
 | Folder | Relationship |
 |--------|--------------|
 | [[07 Systems & SOPs]] | SOPs may invoke prompts |
-| [[workflows/\|workflows/]] | Workflows orchestrate multi-prompt sequences |
+| [[workflows/\|workflows]] | Workflows orchestrate multi-prompt sequences |
 | [[schema/copywriting-standards\|copywriting-standards]] | Prompt outputs pass copywriting audit |
 | [[wiki/synthesis/00-synthesis-engine-hub\|Synthesis Hub]] | Prompts feed the synthesis engine |
 

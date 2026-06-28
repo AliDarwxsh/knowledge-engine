@@ -61,7 +61,7 @@ A meta-analysis note answers four questions:
 
 1. **Capture drift early.** A meta note the day something feels off beats a quarterly audit.
 2. **Propose changes with evidence.** "The inbox passes take 12 minutes instead of 5" is evidence; "the inbox is slow" is not.
-3. **Route improvements to schema.** Approved changes get codified in [[schema/CLAUDE\|schema/CLAUDE.md]] or [[workflows/\|workflows/]].
+3. **Route improvements to schema.** Approved changes get codified in [[schema/CLAUDE\|schema/CLAUDE.md]] or [[workflows/\|workflows]].
 4. **Tag with severity.** `low | medium | high` indicates urgency.
 5. **Close loops.** Every proposal has an `accepted | rejected | deferred` status.
 
@@ -83,7 +83,7 @@ A meta-analysis note answers four questions:
 | Folder | Relationship |
 |--------|--------------|
 | [[schema/CLAUDE\|schema/CLAUDE.md]] | Approved improvements update schema |
-| [[workflows/\|workflows/]] | Approved improvements update workflows |
+| [[workflows/\|workflows]] | Approved improvements update workflows |
 | [[07 Systems & SOPs\|07 Systems & SOPs]] | SOPs are themselves subjects of meta analysis |
 | [[06 Decision Archive\|06 Decision Archive]] | System-level decisions get archived here |
 

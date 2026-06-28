@@ -18,7 +18,7 @@ This folder holds the operator's **repeatable processes** — standard operating
 | Folder | Holds |
 |--------|-------|
 | [[07 Systems & SOPs\|07 Systems & SOPs]] | Human-facing SOPs and rituals |
-| [[workflows/\|workflows/]] | AI-callable procedural scripts |
+| [[workflows/\|workflows]] | AI-callable procedural scripts |
 | [[08 Prompt Library\|08 Prompt Library]] | AI prompts used inside SOPs |
 
 ---
@@ -75,7 +75,7 @@ Every SOP note contains:
 
 ## How to Use
 
-1. **Search before creating.** Many SOPs already exist as workflows in [[workflows/\|workflows/]].
+1. **Search before creating.** Many SOPs already exist as workflows in [[workflows/\|workflows]].
 2. **Link the workflow.** Human SOPs may invoke [[workflows/\|workflow commands]] for AI execution.
 3. **Time-box the SOP.** Every step has a budget.
 4. **Capture failure modes.** An SOP without failure modes is wishful thinking.
@@ -87,7 +87,7 @@ Every SOP note contains:
 
 | Folder | Relationship |
 |--------|--------------|
-| [[workflows/\|workflows/]] | Workflows are AI-callable; SOPs are human-readable |
+| [[workflows/\|workflows]] | Workflows are AI-callable; SOPs are human-readable |
 | [[03 Projects]] | Project execution may invoke SOPs |
 | [[08 Prompt Library]] | AI-assisted SOPs embed prompts |
 | [[13 Meta Analysis]] | SOP quality is analyzed quarterly |

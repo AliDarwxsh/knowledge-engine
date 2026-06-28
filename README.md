@@ -30,16 +30,17 @@ It's a vault that holds everything you know, with Hermes sitting on top — read
 
 ## Quick Start
 
+**macOS / Linux:**
 ```bash
 # 1. Install Hermes (if you don't have it)
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
-# 2. Clone this repo
-git clone https://github.com/<user>/knowledge-engine.git
+# 2. Clone this repo (replace YOUR_GITHUB_USERNAME with your GitHub handle)
+git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
 cd knowledge-engine
 
 # 3. Run setup (scaffolds vault, installs skills, schedules cron)
-bash scripts/setup.sh
+bash scripts/setup.sh       # or: python3 scripts/setup.py
 
 # 4. Open your vault in Obsidian
 # File → Open vault → select the vault path
@@ -47,6 +48,27 @@ bash scripts/setup.sh
 # 5. Run the one-time init interview
 hermes skill run vault-init
 ```
+
+**Windows (PowerShell or Command Prompt):**
+```powershell
+# 1. Install Hermes (if you don't have it)
+irm https://hermes-agent.nousresearch.com/install.ps1 | iex
+
+# 2. Clone this repo (replace YOUR_GITHUB_USERNAME with your GitHub handle)
+git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
+cd knowledge-engine
+
+# 3. Run setup
+scripts\setup.cmd           # delegates to scripts\setup.py — needs Python 3.8+
+
+# 4. (Optional) Register cron jobs in Windows Task Scheduler
+powershell -ExecutionPolicy Bypass -File cron\windows\register-cron.ps1
+
+# 5. Open your vault in Obsidian and run the one-time init interview
+hermes skill run vault-init
+```
+
+> **Windows users:** see [`docs/installation-windows.md`](docs/installation-windows.md) for the full walkthrough. **macOS/Linux users:** see [`docs/getting-started.md`](docs/getting-started.md).
 
 That's it. Drop your first thought in `00 Inbox/`. Watch it get classified, tagged, and linked within hours.
 
@@ -145,14 +167,28 @@ Choose your comfort:
 
 You can change this anytime by editing `CLAUDE.md`.
 
+### 6. Self-Repairing
+
+If something breaks — a missing folder, a misbehaving skill, a corrupted template — you don't need to debug it. Just tell Hermes:
+
+> "Fix my vault structure."  
+> "The inbox processor stopped working."  
+> "Rebuild the templates I deleted."
+
+Hermes reads its own source code. It knows the architecture. It can diagnose issues and repair the engine itself. No manual fixes. No reinstallation.
+
 ## Documentation
 
 | Doc | What's Inside |
 |-----|---------------|
+| [docs/getting-started.md](docs/getting-started.md) | Installation, configuration, first capture (macOS/Linux) |
+| [docs/installation-windows.md](docs/installation-windows.md) | Full Windows install walkthrough + Task Scheduler setup |
 | [docs/architecture.md](docs/architecture.md) | How the engine works under the hood |
 | [docs/daily-workflow.md](docs/daily-workflow.md) | What happens each day, hour by hour |
 | [docs/ai-models.md](docs/ai-models.md) | How to configure your AI provider |
 | [docs/customization.md](docs/customization.md) | How to adapt the engine to your needs |
+| [docs/faq.md](docs/faq.md) | Common questions and troubleshooting |
+| [docs/FUNCTIONAL_GAPS.md](docs/FUNCTIONAL_GAPS.md) | Known limitations and planned improvements |
 
 ## Built On
 
@@ -164,10 +200,6 @@ You can change this anytime by editing `CLAUDE.md`.
 ## The Bigger Picture
 
 This is the open-source knowledge engine. It runs on Hermes + Obsidian with your own AI keys.
-
-**[Seshat](https://github.com/<user>/seshat)** is the full cognitive OS — 10-agent swarm, event-sourced memory, real-time graph intelligence, multi-agent collaboration. Same architecture. Different scale.
-
-Knowledge Engine is the floor. Seshat is the ceiling. Use whichever fits.
 
 ## Contributing
 
@@ -187,25 +219,29 @@ MIT — do whatever you want with this.
 - ⭐ Star this repo if it's useful
 - 🐛 Issues for bugs and feature requests
 - 💬 Discussions for questions and ideas
-- ☕ [Sponsor on GitHub](https://github.com/sponsors/<user>) if you want to support development
+- ☕ [Sponsor on GitHub](https://github.com/sponsors/YOUR_GITHUB_USERNAME) if you want to support development
 
 ---
 
 ## Project Status
 
-**Workstreams**:
+**Workstreams (v1.1.1)**:
 
-- [x] 9 Hermes skills + 1 init skill written (10 SKILL.md files, ~2,000 lines)
-- [x] 5 cron job definitions
-- [x] Setup + verification bash scripts
-- [x] Architecture, daily workflow, AI models, customization docs
-- [x] Hero README with positioning
-- [ ] Vault template (in progress — subagent building)
-- [ ] End-to-end test against real vault
+- [x] 10 Hermes skills written (~2,500 lines, YAML frontmatter validated)
+- [x] 5 cron job definitions (cron/*.json) + 6 Windows equivalents (cron/windows/*.ps1)
+- [x] Cross-platform Python installer (`scripts/setup.py`, `verify.py`) + Windows `.cmd` wrappers + POSIX `.sh` wrappers
+- [x] Cross-platform CI matrix (`.github/workflows/test.yml`) on ubuntu/macos/windows
+- [x] Architecture, daily workflow, AI models, customization, FAQ, Windows install docs
+- [x] SECURITY.md + `scripts/sanitize-check.sh` personal-data guardrails
+- [x] Polished README with cross-platform Quick Start
+- [x] Vault template (50+ files, dual-layer architecture, governance, templates, workflows)
+- [x] All scripts pass syntax validation; all cron JSON valid; all skill frontmatter parse
+- [x] Placeholder-free public docs (`YOUR_GITHUB_USERNAME` template only)
+- [ ] End-to-end test against real vault (deferred — LLM execution non-deterministic)
 - [ ] GitHub repo created and published
 
 ---
 
-Built by Ali Darwish. Inspired by the original Knowledge Archive. Powered by Hermes.
+Built by the Autonomous Second Brain community. Inspired by the original Knowledge Archive. Powered by Hermes Agent.
 
-Version 1.0.0 — released June 2026
+Version 1.1.1 — released June 2026

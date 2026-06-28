@@ -31,13 +31,13 @@ tags: [import, ingestion, chat-export, migration]
 
 ## Supported Formats
 
-| Format | Detection | Parser |
-|--------|-----------|--------|
-| ChatGPT data export | `conversations.json` from OpenAI takeout | `chatgpt.ts` |
-| Claude conversation export | `.json` from claude.ai export | `claude.ts` |
-| Gemini / Google Takeout | `MyActivity.json` or `Bard` format | `gemini.ts` |
-| Generic markdown chat | `.md` with `**Human:**` / `**Assistant:**` or `User:` / `Assistant:` patterns | `generic.ts` |
-| Plain text log | `.txt` with conversation-like structure | `generic.ts` (text mode) |
+| Format | Detection | Extraction Strategy |
+|--------|-----------|---------------------|
+| ChatGPT data export | `conversations.json` from OpenAI takeout | Extract conversations → decisions, principles, knowledge |
+| Claude conversation export | `.json` from claude.ai export | Extract conversations → decisions, principles, knowledge |
+| Gemini / Google Takeout | `MyActivity.json` or `Bard` format | Extract conversations → decisions, principles, knowledge |
+| Generic markdown chat | `.md` with `**Human:**` / `**Assistant:**` or `User:` / `Assistant:` patterns | Parse markdown conversation structure |
+| Plain text log | `.txt` with conversation-like structure | Parse text conversation structure |
 
 Auto-detect by file structure. If ambiguous, ask user.
 

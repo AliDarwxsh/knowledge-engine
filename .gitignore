@@ -1,55 +1,88 @@
-# macOS
+# Knowledge Engine — .gitignore
+# Public open-source repo. No personal data, no credentials, no build artifacts.
+
+# OS files
 .DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+Thumbs.db
+desktop.ini
 
 # Obsidian
-.obsidian/
-**/.obsidian/
-.trash/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache.json
+.obsidian/hotkeys.json
+.obsidian/plugins/
+.obsidian/themes/
+.obsidian/snippets/
 
-# Editor files
+# Environment & credentials
+.env
+.env.*
+*.local
+.envrc
+
+# Node / npm
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
-.vscode/
-.idea/
 
-# Hermes
+# Build artifacts
+dist/
+build/
+out/
+
+# Hermes runtime files
 .hermes/
-*.pyc
-__pycache__/
+hermes.lock
 
-# Environment
-.env
-.env.*
-!.env.example
+# Agent / tooling runtime state (NEVER ship — contains local paths, session IDs, usage logs)
+.claude/
+.cursor/
+.kiro/
+.smart-env/
+.obsidian/
 
-# OS junk
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# Personal vault content that must never be committed to the public template.
+# The repo ships folder scaffolds (README.md) only — never real captured notes.
+vault/00 Inbox/*
+!vault/00 Inbox/README.md
+!vault/00 Inbox/_imported/
+!vault/00 Inbox/_processed/
+!vault/00 Inbox/_unclassified/
+vault/00 Inbox/_imported/*
+!vault/00 Inbox/_imported/README.md
+vault/00 Inbox/_processed/*
+!vault/00 Inbox/_processed/README.md
+vault/00 Inbox/_unclassified/*
+!vault/00 Inbox/_unclassified/README.md
+vault/sources/*
+!vault/sources/README.md
 
-# Temporary / cache files
-*.tmp
-*.temp
-*.log
-.cache/
+# Obsidian Sync conflicts
+*.sync-conflict-*
 
-# ZIP / archives (keep in sources/ not in repo)
+# Archives
 *.zip
 *.tar.gz
 *.rar
 
-# But allow intentional files
-!scripts/*.sh
-!cron/*.json
+# Temp files
+*.tmp
+*.bak
+*.log

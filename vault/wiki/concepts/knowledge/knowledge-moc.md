@@ -71,7 +71,7 @@ Every knowledge node MUST cite at least one source:
 |-------------|------|
 | Distilled from a literature note | `[[templates/literature-note|literature-note]]` |
 | Distilled from a research report | `[[09 Research Archive/report-name]]` |
-| Distilled from raw material | `[[sources/README\|sources/]]` |
+| Distilled from raw material | `[[sources/README\|sources]]` |
 
 > [!warning] **A knowledge note without a source is an opinion.** Cite or mark `[UNSOURCED]`.
 

@@ -92,7 +92,7 @@ The quarterly cadence runs a **deep reconciliation** of the vault. It is heavier
 ### Outputs
 
 - Updated [[wiki/__graph_index__|Graph Index]]
-- One new [[wiki/synthesis/|synthesis note]] from the analogical transfer
+- One new [[wiki/synthesis|synthesis note]] from the analogical transfer
 - Promoted or archived principles
 - Updated decision archive
 - Forward-reference backlog cleared

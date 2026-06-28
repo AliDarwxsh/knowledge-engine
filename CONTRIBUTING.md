@@ -36,7 +36,10 @@ Open a GitHub issue with the `enhancement` label:
 3. Add your skill/cron/script
 4. Update relevant docs
 5. Test against your own vault
-6. Submit a PR
+6. Run `python3 scripts/verify.py` (or `scripts\verify.cmd` on Windows) locally
+7. Submit a PR
+
+**Cross-platform requirement:** every change to `scripts/setup.py`, `scripts/verify.py`, or anything under `scripts/` must work on macOS, Linux, **and** Windows. The CI matrix tests all three — a Windows-only or POSIX-only regression will fail the PR. Stick to Python stdlib (`pathlib`, `subprocess`, `shutil`) for portability — avoid `os.system`, `sed`, `find`, or shell-only utilities in the canonical scripts.
 
 ### Contributing Documentation
 
@@ -131,6 +134,22 @@ Delivery options:
 - `"local"` — save only, no notification
 - `"origin"` — deliver to user's connected channel
 - `"all"` — fan out to every channel
+
+### Windows cron variants
+
+If your job needs to run on Windows too, add a `.ps1` wrapper under `cron/windows/`:
+
+```
+cron/windows/my-cron.ps1
+```
+
+Use the existing wrappers as templates. Users register them with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File cron\windows\register-cron.ps1
+```
+
+For jobs that need to fire multiple times per day (like the 6-hourly inbox processor), use multiple Task Scheduler entries — see `cron/windows/register-cron.ps1` for the pattern.
 
 ## Code of Conduct
 

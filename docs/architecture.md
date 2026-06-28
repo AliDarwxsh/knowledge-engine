@@ -125,10 +125,7 @@ The permission level applies to skills that auto-apply changes. Read-only skills
 
 **With local Ollama**: $0/month (slower, requires local GPU).
 
-The engine never holds credits. The user pays their AI provider directly. The developer (Ali Darwish) makes money from:
-- GitHub Sponsors
-- Consulting on custom deployments
-- Seshat (the full cognitive OS, paid product)
+The engine never holds credits. The user pays their AI provider directly. The engine is free, open-source, and local — there is nothing to charge for. If you want to support development, the project's GitHub repository has a Sponsor link.
 
 ## The Data Flow
 
