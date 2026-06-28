@@ -34,7 +34,7 @@ jobs:
 
       - name: Verify (Python — canonical entry point)
         shell: bash
-        run: python3 scripts/verify.py --help || true
+        run: python3 scripts/verify.py --help
         # --help exits 0 with argparse; verify.py without --help walks checks
         # We invoke verify.py twice: once with --help (parse-only) and once with
         # a clean env (no OBSIDIAN_VAULT) to exercise the "missing vault" path.
@@ -44,6 +44,14 @@ jobs:
         shell: bash
         run: |
           python3 scripts/verify.py --help
+
+      - name: Verify (missing-vault path)
+        shell: bash
+        env:
+          # Intentionally unset OBSIDIAN_VAULT to exercise the missing-vault path
+          OBSIDIAN_VAULT: ""
+        run: |
+          python3 scripts/verify.py || true
 
       - name: Setup (parse-only smoke)
         shell: bash

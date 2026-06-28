@@ -231,7 +231,7 @@ def main() -> int:
     section("Repo template structure")
     repo_root = Path(__file__).resolve().parent.parent
     for d in REQUIRED_DIRS:
-        target = repo_root / d
+        target = repo_root / "vault" / d
         if target.is_dir():
             log_ok(f"Repo template: {d}/")
         else:
@@ -281,14 +281,18 @@ def main() -> int:
                 f"(run python3 scripts/setup.py to install)"
             )
 
-    # Check 7: AI model configuration
-    section("AI model configuration")
+    # Check 7: AI provider configuration
+    section("AI provider configuration")
     has_key = any(
         os.environ.get(k) for k in (
             "OPENAI_API_KEY",
             "ANTHROPIC_API_KEY",
             "OPENROUTER_API_KEY",
             "GOOGLE_API_KEY",
+            "DEEPSEEK_API_KEY",
+            "MISTRAL_API_KEY",
+            "COHERE_API_KEY",
+            "XAI_API_KEY",
         )
     )
     if has_key:
@@ -296,7 +300,7 @@ def main() -> int:
         PASS += 1
     else:
         log_warn("No AI provider API key found in environment")
-        log_warn("  Set one of: OPENAI_API_KEY, ANTHROPIC_API_KEY, OPENROUTER_API_KEY, GOOGLE_API_KEY")
+        log_warn("  Set one of: OPENAI_API_KEY, ANTHROPIC_API_KEY, OPENROUTER_API_KEY, GOOGLE_API_KEY, DEEPSEEK_API_KEY, MISTRAL_API_KEY, COHERE_API_KEY, XAI_API_KEY")
 
     # Check 8: Vault health reminder
     section("Vault health (optional)")
