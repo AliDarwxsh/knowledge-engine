@@ -237,7 +237,7 @@ def main() -> int:
         else:
             log_warn(f"Repo template missing: {d}/")
     for f in CRITICAL_FILES:
-        target = repo_root / f
+        target = repo_root / "vault" / f
         if target.is_file():
             log_ok(f"Repo template: {f}")
         else:

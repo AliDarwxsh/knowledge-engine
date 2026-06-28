@@ -128,7 +128,7 @@ Sunday 6pm Weekly synthesis — cross-domain insights
 - **Not a SaaS.** You install it locally. You run it locally. You own it.
 - **Not a replacement for Obsidian.** Obsidian is the UI. The engine is the automation.
 - **Not AI-generated nonsense.** Every note goes through the schema's copywriting standards. Quality is enforced.
-- **Not a clone of any AI's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose — ChatGPT, Claude, DeepSeek, Kimi, or local models.
+- **Not a clone of any AI's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose.
 
 ## The Killer Features
 
@@ -193,7 +193,7 @@ Hermes reads its own source code. It knows the architecture. It can diagnose iss
 | [docs/installation-windows.md](docs/installation-windows.md) | Full Windows install walkthrough + Task Scheduler setup |
 | [docs/architecture.md](docs/architecture.md) | How the engine works under the hood |
 | [docs/daily-workflow.md](docs/daily-workflow.md) | What happens each day, hour by hour |
-| [docs/ai-models.md](docs/ai-models.md) | How to configure your AI provider |
+
 | [docs/customization.md](docs/customization.md) | How to adapt the engine to your needs |
 | [docs/faq.md](docs/faq.md) | Common questions and troubleshooting |
 | [docs/FUNCTIONAL_GAPS.md](docs/FUNCTIONAL_GAPS.md) | Known limitations and planned improvements |
@@ -202,7 +202,7 @@ Hermes reads its own source code. It knows the architecture. It can diagnose iss
 
 - **[Hermes Agent](https://hermes-agent.nousresearch.com/)** — Self-improving open-source agent with skill system, scheduling, memory, and tool execution
 - **[Obsidian](https://obsidian.md/)** — Local-first markdown knowledge base
-- **Your AI provider** — OpenAI, Anthropic, DeepSeek, Kimi, Qwen, or local Ollama
+- **Your AI provider** — Bring your own API key. Any model you prefer.
 - **Karpathy's LLM Wiki pattern** — The inspiration for the dual-layer architecture
 
 ## Contributing
