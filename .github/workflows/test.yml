@@ -5,6 +5,11 @@ name: Test
 # Runs the canonical Python scripts on every supported OS so any
 # Windows-only or POSIX-only regression fails the PR.
 #
+# Security hardening:
+#   - Actions pinned to commit SHA (not floating tags)
+#   - GITHUB_TOKEN has least privilege (contents: read only)
+#   - No secrets in workflow files; no pull_request_target on untrusted PRs
+#
 # Add a new platform? Add it to the matrix.os list below.
 
 on:
@@ -12,6 +17,9 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   test:

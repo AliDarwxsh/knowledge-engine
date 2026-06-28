@@ -1,13 +1,18 @@
-# Core dependencies
-pyyaml>=6.0
-requests>=2.28.0
+# Development dependencies (optional — install only if you run tests or lint)
+# No runtime dependencies — the engine uses only the Python standard library.
+#
+# Install: uv pip install -r requirements.txt
+# Or:      pip install -r requirements.txt
+#
+# Pin to exact versions for reproducible builds:
+pytest==8.2.2
+pytest-cov==5.0.0
+black==24.4.2
+flake8==7.1.0
+mypy==1.10.1
 
-# Development dependencies
-pytest>=7.0.0
-pytest-cov>=4.0.0
-black>=22.0.0
-flake8>=5.0.0
-mypy>=1.0.0
+# Security scanner (optional — run: bandit -r scripts/)
+bandit==1.7.9
 
-# Optional: For enhanced security scanning
-bandit>=1.7.0
+# Dependency vulnerability checker (optional — run: pip-audit)
+pip-audit==2.7.3
