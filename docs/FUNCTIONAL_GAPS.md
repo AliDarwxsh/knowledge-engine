@@ -1,7 +1,7 @@
 # Functional Gaps & Known Limitations
 
 > Honest assessment of what works, what's approximate, and what's still planned.
-> Last updated: 2026-06-26 (v1.0.1 hardening pass)
+> Last updated: 2026-06-26 (v1.1.1 production-ready pass)
 
 ## Verified Functional
 
@@ -9,7 +9,18 @@
 |-----------|--------|----------|
 | Bash scripts (`setup.sh`, `verify.sh`) | ✅ | `bash -n` syntax passes; delegate to Python canonical entry points |
 | Python scripts (`setup.py`, `verify.py`) | ✅ | `python3 -m py_compile` passes; `--help` works |
-| Windows `.cmd` wrappers (`setup.cmd`, `verify.cmd`) | ✅ | Delegate to Python with `py -3` or `python` launcher selection |
+| Windows `.cmd` wrappers (`setup.cmd`, `verify.cmd`) | ✅ | Delegate to Python with `py` launcher (auto-detects Python 3) |
+
+## Fixed in v1.1.1
+
+| Issue | Fix |
+|-------|-----|
+| `scripts/setup.cmd` and `scripts/verify.cmd` `set "PY=py -3"` broke CMD argument expansion (space in value) | Changed to `set "PY=py"` — auto-detects Python 3 from `.py` file association |
+| `verify.py` reported optional dependencies (Hermes, vault, AI keys) as failures on clean clone | Changed to warnings; clean clone now shows 0 failures + success message |
+| `.github/workflows/test.yml` had duplicate `verify.py --help` test | Replaced with real `missing-vault path` test using `OBSIDIAN_VAULT: ""` |
+| Security: exposed `ghp_` token in Git remote URL | Removed token from `.git/config` and changed remote to HTTPS |
+| `docs/FUNCTIONAL_GAPS.md` version reference | Updated from `v1.0.1` to `v1.1.1` |
+| `CHANGELOG.md` missing v1.1.1 section | Added comprehensive changelog documenting all v1.1.1 fixes |
 | Windows PowerShell cron scripts (`cron/windows/*.ps1`) | ✅ | All 6 files present; `register-cron.ps1` resolves paths correctly |
 | Cron JSON definitions (5) | ✅ | All 5 parse as valid JSON |
 | Skill YAML frontmatter (10) | ✅ | All have `name`, `description`, `version` |
