@@ -35,8 +35,8 @@ It's a vault that holds everything you know, with Hermes sitting on top — read
 # 1. Install Hermes (if you don't have it)
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
-# 2. Clone this repo (replace YOUR_GITHUB_USERNAME with your GitHub handle)
-git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
+# 2. Clone this repo
+git clone https://github.com/Alidarwxsh/knowledge-engine.git
 cd knowledge-engine
 
 # 3. Run setup (scaffolds vault, installs skills, schedules cron)
@@ -54,8 +54,8 @@ hermes skill run vault-init
 # 1. Install Hermes (if you don't have it)
 irm https://hermes-agent.nousresearch.com/install.ps1 | iex
 
-# 2. Clone this repo (replace YOUR_GITHUB_USERNAME with your GitHub handle)
-git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
+# 2. Clone this repo
+git clone https://github.com/Alidarwxsh/knowledge-engine.git
 cd knowledge-engine
 
 # 3. Run setup
@@ -102,7 +102,7 @@ Sunday 6pm Weekly synthesis — cross-domain insights
                     │ User's own API key
 ┌───────────────────▼──────────────────────────────┐
 │ AI MODELS — Reasoning                              │
-│ OpenAI · Anthropic · DeepSeek · Ollama            │
+│ OpenAI · Anthropic · DeepSeek · Qwen · Ollama     │
 │ User configures their provider. Zero cost to us.  │
 └──────────────────────────────────────────────────┘
 ```
@@ -120,13 +120,13 @@ Sunday 6pm Weekly synthesis — cross-domain insights
 - **Not a SaaS.** You install it locally. You run it locally. You own it.
 - **Not a replacement for Obsidian.** Obsidian is the UI. The engine is the automation.
 - **Not AI-generated nonsense.** Every note goes through the schema's copywriting standards. Quality is enforced.
-- **Not a clone of any AI's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose — ChatGPT, Claude, DeepSeek, or local models.
+- **Not a clone of any AI's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose — ChatGPT, Claude, DeepSeek, Kimi, or local models.
 
 ## The Killer Features
 
 ### 1. AI Chat Import
 
-Have 3,000 AI conversations you forgot about? `vault-import` extracts decisions, principles, questions, and knowledge from any chat export — ChatGPT, Claude, DeepSeek, or any model that supports exports. Creates structured notes with source citations. Transforms forgotten chat history into searchable knowledge.
+Have 3,000 AI conversations you forgot about? `vault-import` extracts decisions, principles, questions, and knowledge from any chat export — ChatGPT, Claude, DeepSeek, Kimi, or any model that supports exports. Creates structured notes with source citations. Transforms forgotten chat history into searchable knowledge.
 
 ```bash
 /vault-import ~/Downloads/chat-export.zip
@@ -194,12 +194,8 @@ Hermes reads its own source code. It knows the architecture. It can diagnose iss
 
 - **[Hermes Agent](https://hermes-agent.nousresearch.com/)** — Self-improving open-source agent with skill system, scheduling, memory, and tool execution
 - **[Obsidian](https://obsidian.md/)** — Local-first markdown knowledge base
-- **Your AI provider** — OpenAI, Anthropic, OpenRouter, or local Ollama
+- **Your AI provider** — OpenAI, Anthropic, DeepSeek, Kimi, Qwen, or local Ollama
 - **Karpathy's LLM Wiki pattern** — The inspiration for the dual-layer architecture
-
-## The Bigger Picture
-
-This is the open-source knowledge engine. It runs on Hermes + Obsidian with your own AI keys.
 
 ## Contributing
 
@@ -219,7 +215,7 @@ MIT — do whatever you want with this.
 - ⭐ Star this repo if it's useful
 - 🐛 Issues for bugs and feature requests
 - 💬 Discussions for questions and ideas
-- ☕ [Sponsor on GitHub](https://github.com/sponsors/YOUR_GITHUB_USERNAME) if you want to support development
+- ☕ [Sponsor on GitHub](https://github.com/sponsors/Alidarwxsh) if you want to support development
 
 ---
 

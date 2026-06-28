@@ -8,7 +8,7 @@ Usage:
     python3 scripts/setup.py --vault PATH   # non-interactive
     OBSIDIAN_VAULT=Path python3 setup.py    # use env var, no prompt
 
-After forking this repo, replace "YOUR_GITHUB_USERNAME" in this file
+After forking this repo, replace "Alidarwxsh" in this file
 and the other docs with your actual GitHub handle.
 """
 from __future__ import annotations
@@ -23,7 +23,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-ENGINE_VERSION = "1.0.0"
+ENGINE_VERSION = "1.1.1"
 
 REQUIRED_DIRS = [
     "00 Inbox",
@@ -458,7 +458,7 @@ def main() -> int:
     print("  3. Start capturing: type /vault-capture \"Your first thought\" in Hermes")
     print()
     print(f"{C.BLUE}Documentation:{C.NC}")
-    print("  https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine")
+    print("  https://github.com/Alidarwxsh/knowledge-engine")
     print()
     print(f"{C.BLUE}Your engine gets smarter every day.{C.NC}")
     print()

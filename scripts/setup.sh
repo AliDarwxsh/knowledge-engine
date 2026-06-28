@@ -6,8 +6,8 @@
 #   python3 scripts/setup.py            # or: py scripts/setup.py on Windows
 #
 # This thin wrapper exists for users who still curl-pipe the installer.
-# Replace YOUR_GITHUB_USERNAME with your actual GitHub handle before using:
-#   bash <(curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/knowledge-engine/main/scripts/setup.sh)
+# Quick install via curl (after forking, replace Alidarwxsh with your handle):
+#   bash <(curl -fsSL https://raw.githubusercontent.com/Alidarwxsh/knowledge-engine/main/scripts/setup.sh)
 set -u  # Error on undefined variables
 
 set -euo pipefail

@@ -23,7 +23,7 @@ You do **not** need WSL, Git Bash, or any Linux subsystem. Everything in this re
 ## 1. Clone the repo
 
 ```powershell
-git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
+git clone https://github.com/Alidarwxsh/knowledge-engine.git
 cd knowledge-engine
 ```
 
