@@ -30,7 +30,8 @@ if %errorlevel% equ 0 (
 )
 
 echo X Python is not installed.
-echo   Install Python 3.8+ from https://www.python.org/downloads/
+echo   Download and install Python 3.8+ from:
+echo   https://www.python.org/downloads/
 echo   During install, tick "Add python.exe to PATH".
 exit /b 1
 

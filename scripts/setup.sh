@@ -21,8 +21,9 @@ elif command -v python >/dev/null 2>&1; then
   PY=python
 else
   echo "✗ Python is not installed." >&2
-  echo "  Install Python 3.8+ and re-run this script." >&2
-  echo "  See: https://www.python.org/downloads/" >&2
+  echo "  Download and install Python 3.8+ from:" >&2
+  echo "  https://www.python.org/downloads/" >&2
+  echo "  Then re-run this script." >&2
   exit 1
 fi
 

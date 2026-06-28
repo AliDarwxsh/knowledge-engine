@@ -33,16 +33,20 @@ It's a vault that holds everything you know, with Hermes sitting on top — read
 **macOS / Linux:**
 ```bash
 # 1. Install Hermes (if you don't have it)
+# Download: https://hermes-agent.nousresearch.com (free, open-source)
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
-# 2. Clone this repo
+# 2. Install Obsidian (if you don't have it)
+# Download: https://obsidian.md (free for personal use)
+
+# 3. Clone this repo
 git clone https://github.com/Alidarwxsh/knowledge-engine.git
 cd knowledge-engine
 
-# 3. Run setup (scaffolds vault, installs skills, schedules cron)
+# 4. Run setup (scaffolds vault, installs skills, schedules cron)
 bash scripts/setup.sh       # or: python3 scripts/setup.py
 
-# 4. Open your vault in Obsidian
+# 5. Open your vault in Obsidian
 # File → Open vault → select the vault path
 
 # 5. Run the one-time init interview
@@ -52,19 +56,23 @@ hermes skill run vault-init
 **Windows (PowerShell or Command Prompt):**
 ```powershell
 # 1. Install Hermes (if you don't have it)
+# Download: https://hermes-agent.nousresearch.com (free, open-source)
 irm https://hermes-agent.nousresearch.com/install.ps1 | iex
 
-# 2. Clone this repo
+# 2. Install Obsidian (if you don't have it)
+# Download: https://obsidian.md (free for personal use)
+
+# 3. Clone this repo
 git clone https://github.com/Alidarwxsh/knowledge-engine.git
 cd knowledge-engine
 
-# 3. Run setup
+# 4. Run setup
 scripts\setup.cmd           # delegates to scripts\setup.py — needs Python 3.8+
 
-# 4. (Optional) Register cron jobs in Windows Task Scheduler
+# 5. (Optional) Register cron jobs in Windows Task Scheduler
 powershell -ExecutionPolicy Bypass -File cron\windows\register-cron.ps1
 
-# 5. Open your vault in Obsidian and run the one-time init interview
+# 6. Open your vault in Obsidian and run the one-time init interview
 hermes skill run vault-init
 ```
 

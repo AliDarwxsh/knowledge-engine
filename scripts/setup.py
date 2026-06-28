@@ -8,6 +8,11 @@ Usage:
     python3 scripts/setup.py --vault PATH   # non-interactive
     OBSIDIAN_VAULT=Path python3 setup.py    # use env var, no prompt
 
+Prerequisites:
+    - Hermes Agent: https://hermes-agent.nousresearch.com (free, open-source)
+    - Obsidian: https://obsidian.md (free for personal use)
+    - Python 3.8+: https://www.python.org/downloads/
+
 After forking this repo, replace "Alidarwxsh" in this file
 and the other docs with your actual GitHub handle.
 """

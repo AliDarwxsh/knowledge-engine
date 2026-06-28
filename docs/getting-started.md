@@ -4,8 +4,8 @@
 
 ## Prerequisites
 
-- **Hermes Agent** installed ([download](https://hermes-agent.nousresearch.com))
-- **Obsidian** installed ([download](https://obsidian.md))
+- **Hermes Agent** installed — [Download Hermes](https://hermes-agent.nousresearch.com) (free, open-source)
+- **Obsidian** installed — [Download Obsidian](https://obsidian.md) (free for personal use)
 - An AI provider API key (OpenAI, Anthropic, OpenRouter, or local Ollama)
 
 ## Installation
