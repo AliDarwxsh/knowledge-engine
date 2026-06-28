@@ -154,6 +154,7 @@ def section(title: str) -> None:
 
 
 def main() -> int:
+    global PASS, FAIL, WARN
     import argparse
     parser = argparse.ArgumentParser(
         description="Verify that knowledge-engine is properly installed"
@@ -176,7 +177,11 @@ def main() -> int:
     # Check 1: Hermes installation
     section("Hermes installation")
     hermes_path = shutil.which("hermes")
-    check("Hermes is installed", lambda: hermes_path is not None)
+    if hermes_path:
+        log_ok("Hermes is installed")
+        PASS += 1
+    else:
+        log_warn("Hermes is not installed (optional — run setup.py to install)")
 
     def hermes_responds() -> bool:
         if not hermes_path:
@@ -190,14 +195,17 @@ def main() -> int:
         except Exception:
             return False
 
-    check("Hermes responds to --version", hermes_responds)
+    if hermes_responds():
+        log_ok("Hermes responds to --version")
+        PASS += 1
+    else:
+        log_warn("Hermes not responding (optional — run setup.py to install)")
 
     # Check 2: Vault configuration
     section("Vault configuration")
     vault_env = os.environ.get("OBSIDIAN_VAULT")
     if vault_env:
         log_ok(f"OBSIDIAN_VAULT is set: {vault_env}")
-        global PASS
         PASS += 1
     else:
         log_warn("OBSIDIAN_VAULT is not set (optional — only needed for active vault sync)")
