@@ -18,6 +18,11 @@ import sys
 from pathlib import Path
 from typing import Callable
 
+# Force UTF-8 on Windows to avoid cp1252 codec errors
+if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 REQUIRED_DIRS = [
     "00 Inbox",
     "01 Identity",
@@ -140,11 +145,11 @@ def check(description: str, predicate: Callable[[], bool]) -> bool:
 
 
 def banner(title: str) -> None:
-    bar = "═" * 62
+    bar = "=" * 62
     print()
-    print(f"╔{bar}╗")
-    print(f"║{title.center(62)}║")
-    print(f"╚{bar}╝")
+    print(f"+{bar}+")
+    print(f"|{title.center(62)}|")
+    print(f"+{bar}+")
     print()
 
 

@@ -287,7 +287,7 @@ def install_cron(cron_source: Path) -> None:
     installed = 0
     for cron_file in sorted(cron_source.glob("*.json")):
         try:
-            data = json.loads(cron_file.read_text())
+            data = json.loads(cron_file.read_text(encoding="utf-8"))
         except Exception as e:
             log_warn(f"Could not parse {cron_file}: {e}")
             continue
@@ -351,7 +351,7 @@ def persist_env_var(vault: Path) -> None:
 
     export_line = f'export OBSIDIAN_VAULT="{vault}"'
     try:
-        existing = rc.read_text() if rc.exists() else ""
+        existing = rc.read_text(encoding="utf-8") if rc.exists() else ""
         if "OBSIDIAN_VAULT" in existing:
             log_ok(f"OBSIDIAN_VAULT already configured in {rc}")
             return

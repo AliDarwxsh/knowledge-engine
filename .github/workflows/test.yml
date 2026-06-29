@@ -101,7 +101,7 @@ jobs:
           import pathlib, sys
           ok = True
           for f in pathlib.Path("skills").rglob("SKILL.md"):
-              text = f.read_text()
+              text = f.read_text(encoding="utf-8")
               if not text.startswith("---"):
                   print(f"MISSING frontmatter: {f}")
                   ok = False

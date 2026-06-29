@@ -74,7 +74,7 @@ class TestScripts:
     def test_shell_scripts_have_safety_settings(self, scripts_dir):
         """Test shell scripts have set -e and set -u."""
         for script in scripts_dir.glob("*.sh"):
-            content = script.read_text()
+            content = script.read_text(encoding="utf-8")
             assert "set -e" in content or "set -o errexit" in content, (
                 f"{script.name} missing set -e"
             )
@@ -129,7 +129,7 @@ class TestGitHubActions:
     def test_actions_pinned(self, workflows_dir):
         """Test GitHub Actions are pinned to SHA."""
         test_yml = workflows_dir / "test.yml"
-        content = test_yml.read_text()
+        content = test_yml.read_text(encoding="utf-8")
         import re
         matches = re.findall(r"uses:\s+(\S+)", content)
         for action in matches:
@@ -161,7 +161,7 @@ class TestDocumentation:
     def test_all_docs_have_headers(self, docs_dir):
         """Test all docs have proper headers."""
         for doc in docs_dir.glob("*.md"):
-            content = doc.read_text()
+            content = doc.read_text(encoding="utf-8")
             assert content.startswith("#"), f"{doc.name} missing title header"
 
 
