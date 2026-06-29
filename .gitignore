@@ -86,3 +86,32 @@ vault/sources/*
 *.tmp
 *.bak
 *.log
+
+# Test coverage / tox
+.coverage
+.tox/
+htmlcov/
+.pytest_cache/
+
+# Secrets that might be generated during dev
+*.pem
+*.cert
+*.key
+*.p12
+*.pfx
+
+# Local environment overrides
+.env.local
+.env.*.local
+
+# Package manager lock files (only keep one canonical)
+# We use uv/pyproject.toml; ignore pip artifacts
+pip-wheel-metadata/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+
+# Misc
+.cache/
+.eggs/

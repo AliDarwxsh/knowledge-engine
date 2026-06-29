@@ -17,8 +17,8 @@ Do not open a public issue for a security problem. Public issues are visible to 
 
 Use one of these private channels:
 
-- **GitHub private advisory** (preferred) — open a draft advisory at `https://github.com/<repo-owner>/knowledge-engine/security/advisories/new`. This keeps the report private until you and the maintainers agree to publish.
-- **Email** — find the maintainer contact in the GitHub repository's README "Support" section. Use the subject line `SECURITY: <short summary>`.
+- **GitHub private advisory** (preferred) — open a draft advisory at `https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine/security/advisories/new`. This keeps the report private until you and the maintainers agree to publish.
+- **Email** — `security@example.com`. Use the subject line `SECURITY: <short summary>`.
 
 Include in your report:
 
@@ -68,3 +68,48 @@ Two mechanisms keep personal vault data out of commits. Run both before you push
 
 > [!important]
 > If `sanitize-check.sh` passes but you still spot personal data in a diff, treat that as a high-severity finding and report it privately. A bypass of the sanitization guardrail is the most damaging bug this project can have.
+
+## Branch protection (maintainers)
+
+If you fork this repo and maintain it with collaborators, enable these settings on `main`:
+
+- **Require pull request reviews** — at least 1 approval before merge.
+- **Require status checks** — `sanitize-check` and `pytest` must pass.
+- **Restrict push** — only allow merges via PR, no direct push.
+- **Require signed commits** — GPG or SSH signature verification.
+- **Dependabot alerts** — enable in Settings → Security → Code security.
+
+## Dependency security
+
+This project has zero runtime dependencies. The only Python packages used are from the standard library (`json`, `os`, `sys`, `subprocess`, `pathlib`, `argparse`). No `requirements.txt`, no `package.json`, no supply-chain attack surface from third-party packages.
+
+If you install optional dev tools (pytest, mypy, ruff), keep them updated:
+
+```bash
+# Check for known CVEs in your local environment
+pip-audit --local
+# or
+uv pip list | pip-audit --requirement /dev/stdin
+```
+
+## GitHub Actions security
+
+CI workflows in `.github/workflows/` follow these hardening practices:
+
+- **Pin actions to commit SHA** — not floating tags. Prevents supply-chain attacks if an action is compromised.
+- **Least-privilege `GITHUB_TOKEN`** — workflows use `permissions: contents: read` only, no write access.
+- **No secrets in workflow files** — all API keys come from GitHub Secrets, never hardcoded.
+- **No `pull_request_target` on untrusted PRs** — prevents exfiltration of secrets from fork PRs.
+
+## PGP key for encrypted reports (optional)
+
+If you prefer to encrypt your vulnerability report, use this PGP key. Fingerprint: `TBD — request via email if needed.`
+
+## Security changelog
+
+| Date | Finding | Severity | Fix |
+|------|---------|----------|-----|
+| 2026-06-26 | `ghp_` token exposed in `.git/config` working tree | High | Removed token, reset remote URL, added `sanitize-check.sh` |
+| 2026-06-26 | Personal name in `README.md` and `docs/architecture.md` | Medium | Redacted to community attribution |
+| 2026-06-26 | `<user>` placeholder in setup scripts | Low | Replaced with `YOUR_GITHUB_USERNAME` |
+| 2026-06-29 | `.gitignore` missing coverage/secret patterns | Low | Added `.coverage`, `*.pem`, `*.key`, `.tox/` |

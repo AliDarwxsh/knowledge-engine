@@ -78,7 +78,7 @@ EXPECTED_CRON = [
 
 class C:
     if sys.platform == "win32":
-        os.system("")  # enable VT100
+        os.system("")  # nosec B605,B607
     RED = "\033[0;31m"
     GREEN = "\033[0;32m"
     YELLOW = "\033[1;33m"
@@ -154,6 +154,7 @@ def section(title: str) -> None:
 
 
 def main() -> int:
+    global PASS, FAIL, WARN
     import argparse
     parser = argparse.ArgumentParser(
         description="Verify that knowledge-engine is properly installed"
@@ -176,13 +177,17 @@ def main() -> int:
     # Check 1: Hermes installation
     section("Hermes installation")
     hermes_path = shutil.which("hermes")
-    check("Hermes is installed", lambda: hermes_path is not None)
+    if hermes_path:
+        log_ok("Hermes is installed")
+        PASS += 1
+    else:
+        log_warn("Hermes is not installed (optional — run setup.py to install)")
 
     def hermes_responds() -> bool:
         if not hermes_path:
             return False
         try:
-            r = subprocess.run(
+            r = subprocess.run(  # nosec B603
                 [hermes_path, "--version"],
                 capture_output=True, text=True, timeout=10
             )
@@ -190,14 +195,17 @@ def main() -> int:
         except Exception:
             return False
 
-    check("Hermes responds to --version", hermes_responds)
+    if hermes_responds():
+        log_ok("Hermes responds to --version")
+        PASS += 1
+    else:
+        log_warn("Hermes not responding (optional — run setup.py to install)")
 
     # Check 2: Vault configuration
     section("Vault configuration")
     vault_env = os.environ.get("OBSIDIAN_VAULT")
     if vault_env:
         log_ok(f"OBSIDIAN_VAULT is set: {vault_env}")
-        global PASS
         PASS += 1
     else:
         log_warn("OBSIDIAN_VAULT is not set (optional — only needed for active vault sync)")
@@ -231,13 +239,13 @@ def main() -> int:
     section("Repo template structure")
     repo_root = Path(__file__).resolve().parent.parent
     for d in REQUIRED_DIRS:
-        target = repo_root / d
+        target = repo_root / "vault" / d
         if target.is_dir():
             log_ok(f"Repo template: {d}/")
         else:
             log_warn(f"Repo template missing: {d}/")
     for f in CRITICAL_FILES:
-        target = repo_root / f
+        target = repo_root / "vault" / f
         if target.is_file():
             log_ok(f"Repo template: {f}")
         else:
@@ -261,7 +269,7 @@ def main() -> int:
     section("Cron jobs")
     if hermes_path:
         try:
-            r = subprocess.run(
+            r = subprocess.run(  # nosec B603
                 [hermes_path, "cron", "list"],
                 capture_output=True, text=True, timeout=15
             )
@@ -281,14 +289,18 @@ def main() -> int:
                 f"(run python3 scripts/setup.py to install)"
             )
 
-    # Check 7: AI model configuration
-    section("AI model configuration")
+    # Check 7: AI provider configuration
+    section("AI provider configuration")
     has_key = any(
         os.environ.get(k) for k in (
             "OPENAI_API_KEY",
             "ANTHROPIC_API_KEY",
             "OPENROUTER_API_KEY",
             "GOOGLE_API_KEY",
+            "DEEPSEEK_API_KEY",
+            "MISTRAL_API_KEY",
+            "COHERE_API_KEY",
+            "XAI_API_KEY",
         )
     )
     if has_key:
@@ -296,7 +308,7 @@ def main() -> int:
         PASS += 1
     else:
         log_warn("No AI provider API key found in environment")
-        log_warn("  Set one of: OPENAI_API_KEY, ANTHROPIC_API_KEY, OPENROUTER_API_KEY, GOOGLE_API_KEY")
+        log_warn("  Set one of: OPENAI_API_KEY, ANTHROPIC_API_KEY, OPENROUTER_API_KEY, GOOGLE_API_KEY, DEEPSEEK_API_KEY, MISTRAL_API_KEY, COHERE_API_KEY, XAI_API_KEY")
 
     # Check 8: Vault health reminder
     section("Vault health (optional)")

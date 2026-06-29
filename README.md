@@ -1,6 +1,6 @@
 # Knowledge Engine
 
-> **A self-organizing knowledge system. Hermes + Obsidian. Capture. Auto-classify. Query. It gets smarter every day.**
+> **Turn scattered thoughts into a self-organizing knowledge system. 187 structured notes from 342 forgotten AI conversations — automatically.**
 
 ---
 
@@ -12,7 +12,7 @@ It's a vault that holds everything you know, with Hermes sitting on top — read
 
 ## The 30-Second Pitch
 
-- 📥 **Capture once** — Drop thoughts, articles, chat exports. Zero decisions at capture time.
+- 📥 **Capture once** — Drop thoughts, articles, any AI chat export. Zero decisions at capture time.
 - 🧠 **Engine classifies** — Reads your input. Routes it to the right folder. Tags it. Links it to related notes.
 - 🔍 **Query anything** — "What did I write about pricing?" Get answers with citations from your own notes.
 - 🌐 **Graph compounds** — Every note strengthens every other note. The vault learns you over time.
@@ -33,16 +33,20 @@ It's a vault that holds everything you know, with Hermes sitting on top — read
 **macOS / Linux:**
 ```bash
 # 1. Install Hermes (if you don't have it)
+# Download: https://hermes-agent.nousresearch.com (free, open-source)
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
-# 2. Clone this repo (replace YOUR_GITHUB_USERNAME with your GitHub handle)
+# 2. Install Obsidian (if you don't have it)
+# Download: https://obsidian.md (free for personal use)
+
+# 3. Clone this repo
 git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
 cd knowledge-engine
 
-# 3. Run setup (scaffolds vault, installs skills, schedules cron)
+# 4. Run setup (scaffolds vault, installs skills, schedules cron)
 bash scripts/setup.sh       # or: python3 scripts/setup.py
 
-# 4. Open your vault in Obsidian
+# 5. Open your vault in Obsidian
 # File → Open vault → select the vault path
 
 # 5. Run the one-time init interview
@@ -52,19 +56,23 @@ hermes skill run vault-init
 **Windows (PowerShell or Command Prompt):**
 ```powershell
 # 1. Install Hermes (if you don't have it)
+# Download: https://hermes-agent.nousresearch.com (free, open-source)
 irm https://hermes-agent.nousresearch.com/install.ps1 | iex
 
-# 2. Clone this repo (replace YOUR_GITHUB_USERNAME with your GitHub handle)
+# 2. Install Obsidian (if you don't have it)
+# Download: https://obsidian.md (free for personal use)
+
+# 3. Clone this repo
 git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
 cd knowledge-engine
 
-# 3. Run setup
+# 4. Run setup
 scripts\setup.cmd           # delegates to scripts\setup.py — needs Python 3.8+
 
-# 4. (Optional) Register cron jobs in Windows Task Scheduler
+# 5. (Optional) Register cron jobs in Windows Task Scheduler
 powershell -ExecutionPolicy Bypass -File cron\windows\register-cron.ps1
 
-# 5. Open your vault in Obsidian and run the one-time init interview
+# 6. Open your vault in Obsidian and run the one-time init interview
 hermes skill run vault-init
 ```
 
@@ -102,7 +110,7 @@ Sunday 6pm Weekly synthesis — cross-domain insights
                     │ User's own API key
 ┌───────────────────▼──────────────────────────────┐
 │ AI MODELS — Reasoning                              │
-│ OpenAI · Anthropic · DeepSeek · Ollama            │
+│ OpenAI · Anthropic · DeepSeek · Qwen · Ollama     │
 │ User configures their provider. Zero cost to us.  │
 └──────────────────────────────────────────────────┘
 ```
@@ -120,19 +128,19 @@ Sunday 6pm Weekly synthesis — cross-domain insights
 - **Not a SaaS.** You install it locally. You run it locally. You own it.
 - **Not a replacement for Obsidian.** Obsidian is the UI. The engine is the automation.
 - **Not AI-generated nonsense.** Every note goes through the schema's copywriting standards. Quality is enforced.
-- **Not a clone of ChatGPT's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose.
+- **Not a clone of any AI's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose.
 
 ## The Killer Features
 
 ### 1. AI Chat Import
 
-Have 3,000 ChatGPT conversations you forgot about? `vault-import` extracts decisions, principles, questions, and knowledge from each one. Creates structured notes with source citations. Transforms forgotten chat history into searchable knowledge.
+Have 3,000 AI conversations you forgot about? `vault-import` extracts decisions, principles, questions, and knowledge from any chat export — ChatGPT, Claude, DeepSeek, Kimi, or any model that supports exports. Creates structured notes with source citations. Transforms forgotten chat history into searchable knowledge.
 
 ```bash
-/vault-import ~/Downloads/chatgpt-export.zip
+/vault-import ~/Downloads/chat-export.zip
 ```
 
-Result: 187 notes created from 342 conversations. Linked to 53 existing notes.
+**Result: 187 notes created from 342 conversations. Linked to 53 existing notes.** That's 55% of your scattered conversations turned into structured, interlinked knowledge — in one command.
 
 ### 2. Auto-Classification
 
@@ -185,7 +193,7 @@ Hermes reads its own source code. It knows the architecture. It can diagnose iss
 | [docs/installation-windows.md](docs/installation-windows.md) | Full Windows install walkthrough + Task Scheduler setup |
 | [docs/architecture.md](docs/architecture.md) | How the engine works under the hood |
 | [docs/daily-workflow.md](docs/daily-workflow.md) | What happens each day, hour by hour |
-| [docs/ai-models.md](docs/ai-models.md) | How to configure your AI provider |
+
 | [docs/customization.md](docs/customization.md) | How to adapt the engine to your needs |
 | [docs/faq.md](docs/faq.md) | Common questions and troubleshooting |
 | [docs/FUNCTIONAL_GAPS.md](docs/FUNCTIONAL_GAPS.md) | Known limitations and planned improvements |
@@ -194,12 +202,8 @@ Hermes reads its own source code. It knows the architecture. It can diagnose iss
 
 - **[Hermes Agent](https://hermes-agent.nousresearch.com/)** — Self-improving open-source agent with skill system, scheduling, memory, and tool execution
 - **[Obsidian](https://obsidian.md/)** — Local-first markdown knowledge base
-- **Your AI provider** — OpenAI, Anthropic, OpenRouter, or local Ollama
+- **Your AI provider** — Bring your own API key. Any model you prefer.
 - **Karpathy's LLM Wiki pattern** — The inspiration for the dual-layer architecture
-
-## The Bigger Picture
-
-This is the open-source knowledge engine. It runs on Hermes + Obsidian with your own AI keys.
 
 ## Contributing
 
@@ -222,23 +226,6 @@ MIT — do whatever you want with this.
 - ☕ [Sponsor on GitHub](https://github.com/sponsors/YOUR_GITHUB_USERNAME) if you want to support development
 
 ---
-
-## Project Status
-
-**Workstreams (v1.1.1)**:
-
-- [x] 10 Hermes skills written (~2,500 lines, YAML frontmatter validated)
-- [x] 5 cron job definitions (cron/*.json) + 6 Windows equivalents (cron/windows/*.ps1)
-- [x] Cross-platform Python installer (`scripts/setup.py`, `verify.py`) + Windows `.cmd` wrappers + POSIX `.sh` wrappers
-- [x] Cross-platform CI matrix (`.github/workflows/test.yml`) on ubuntu/macos/windows
-- [x] Architecture, daily workflow, AI models, customization, FAQ, Windows install docs
-- [x] SECURITY.md + `scripts/sanitize-check.sh` personal-data guardrails
-- [x] Polished README with cross-platform Quick Start
-- [x] Vault template (50+ files, dual-layer architecture, governance, templates, workflows)
-- [x] All scripts pass syntax validation; all cron JSON valid; all skill frontmatter parse
-- [x] Placeholder-free public docs (`YOUR_GITHUB_USERNAME` template only)
-- [ ] End-to-end test against real vault (deferred — LLM execution non-deterministic)
-- [ ] GitHub repo created and published
 
 ---
 

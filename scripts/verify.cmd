@@ -6,7 +6,7 @@ setlocal
 
 where py >nul 2>nul
 if %errorlevel% equ 0 (
-  set "PY=py -3"
+  set "PY=py"
   goto :run
 )
 

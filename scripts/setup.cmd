@@ -13,7 +13,7 @@ setlocal
 REM Pick the best Python launcher available on Windows
 where py >nul 2>nul
 if %errorlevel% equ 0 (
-  set "PY=py -3"
+  set "PY=py"
   goto :run
 )
 
@@ -30,7 +30,8 @@ if %errorlevel% equ 0 (
 )
 
 echo X Python is not installed.
-echo   Install Python 3.8+ from https://www.python.org/downloads/
+echo   Download and install Python 3.8+ from:
+echo   https://www.python.org/downloads/
 echo   During install, tick "Add python.exe to PATH".
 exit /b 1
 

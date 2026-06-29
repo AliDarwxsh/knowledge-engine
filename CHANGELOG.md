@@ -11,14 +11,21 @@ All notable changes to knowledge-engine will be documented in this file.
 ### Fixed
 - **Personal info leak** — removed "Ali Darwish" attribution + "makes money from" monetization paragraph from `docs/architecture.md`. Rewrote to position engine as free, open-source, with optional GitHub Sponsor link.
 - **Personal info leak** — removed "Built by Ali Darwish" from `README.md` footer; replaced with community attribution.
+- **Personal info leak** — removed all personal identifiers (name, email, GitHub username) from `pyproject.toml`, `SECURITY.md`, `README.md`, `docs/`, `scripts/setup.py`, `scripts/setup.sh`, and `.github/dependabot.yml`. Replaced with generic placeholders or community attribution.
 - **Placeholder leaks** — replaced `<user>` with `YOUR_GITHUB_USERNAME` in `README.md` (4 places), `scripts/setup.py` (2 places), `docs/installation-windows.md`. Updated `setup.sh` comment to drop curl-pipe example that referenced the placeholder.
 - **SECURITY.md placeholder** — replaced `your-email@example.com` with reference to GitHub repo "Support" section. Updated GitHub advisory URL placeholder from `OWNER` to `<repo-owner>`.
 - **Duplicate section** — removed second "Adversarial Cases" block in `skills/vault-query/SKILL.md` (was identical to the first).
 - **Windows path bug** — `cron/windows/register-cron.ps1` was looking for scripts under `scripts\cron\windows\` but they live under `cron\windows\`. Fixed `RepoRoot` parent traversal (was `..\..\..\`, now `..\..`) and updated path string. Updated docs/README/CONTRIBUTING that referenced the wrong path.
+- **Version mismatch** — `scripts/setup.py` `ENGINE_VERSION` was `"1.0.0"` instead of `"1.1.1"`.
+- **Windows CMD wrapper bug** — `scripts/setup.cmd` and `scripts/verify.cmd` used `set "PY=py -3"` which breaks CMD parsing because the space in the value causes `"%PY%"` to expand as two arguments. Fixed to `set "PY=py"` (Python launcher defaults to latest Python 3).
+- **verify.py false positive** — repo template structure checks were looking for `README.md`, `CLAUDE.md`, and other files in the repo root instead of the `vault/` subdirectory, causing false "missing" warnings on fresh clones.
+- **CI test duplication** — `.github/workflows/test.yml` had two identical `verify.py --help` invocations; replaced the second with a real `missing-vault path` test using `OBSIDIAN_VAULT: ""`.
+- **Security token cleanup** — removed exposed `ghp_` token from Git remote URL in repository config (token was in working tree, not committed).
 
 ### Changed
 - `sanitize-check.sh` placeholder patterns moved from HIGH (block) to LOW (warn) severity — template placeholders in a public template repo are legitimate content, not a leak. They still appear under `--strict` for review.
 - `docs/FUNCTIONAL_GAPS.md` updated to reflect v1.1.1 state (cross-platform verified, placeholder-free, sanitize-check shipped).
+- `scripts/verify.py` optional dependency checks (Hermes not installed, vault not configured, no AI provider key) now report as warnings instead of failures. A clean clone of the repository now shows `✓ Knowledge Engine is properly installed and ready` with 0 failures, making the first-run experience less alarming for new users.
 
 ## [1.1.0] — 2026-06-26
 

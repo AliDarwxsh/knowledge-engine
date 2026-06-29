@@ -154,8 +154,8 @@ This skill:
 - ✅ Modifies `related:` field in existing notes (if permission level allows)
 - ✅ Removes wikilinks from notes (if permission level allows)
 - ✅ Updates MOCs and ontology (if permission level allows)
-- ❌ Never modifies `schema/CLAUDE.md` or `schema/copywriting-standards.md`
-- ❌ Never edits `sources/`
+- X Never modifies `schema/CLAUDE.md` or `schema/copywriting-standards.md`
+- X Never edits `sources/`
 
 ---
 

@@ -11,10 +11,10 @@ Knowledge Engine runs natively on Windows 10/11. This guide walks you through th
 | Requirement | How to install | Verify |
 |---|---|---|
 | **Windows 10/11** (64-bit) | — | `winver` |
-| **Python 3.8+** | Download from [python.org](https://www.python.org/downloads/windows/). **Tick "Add python.exe to PATH"** during install. | `python --version` |
-| **Git** (optional, for cloning) | [git-scm.com](https://git-scm.com/download/win) | `git --version` |
-| **Obsidian** (the UI) | [obsidian.md](https://obsidian.md/) | Open Obsidian → see your vault |
-| **Hermes Agent** | `irm https://hermes-agent.nousresearch.com/install.ps1 \| iex` | `hermes --version` |
+| **Python 3.8+** | Download from [python.org/downloads/windows](https://www.python.org/downloads/windows/). **Tick "Add python.exe to PATH"** during install. | `python --version` |
+| **Git** (optional, for cloning) | Download from [git-scm.com/download/win](https://git-scm.com/download/win) | `git --version` |
+| **Obsidian** (the UI) | Download from [obsidian.md](https://obsidian.md/) (free for personal use) | Open Obsidian → see your vault |
+| **Hermes Agent** | `irm https://hermes-agent.nousresearch.com/install.ps1 \| iex` — or [download here](https://hermes-agent.nousresearch.com) | `hermes --version` |
 
 You do **not** need WSL, Git Bash, or any Linux subsystem. Everything in this repo is native Windows.
 

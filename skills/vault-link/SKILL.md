@@ -143,9 +143,9 @@ This skill:
 - ✅ Adds inline wikilinks (with user's permission level)
 - ✅ Creates connection notes in `wiki/synthesis/`
 - ✅ Creates forward references (gray links)
-- ❌ Does NOT modify body content beyond adding links
-- ❌ Does NOT delete existing links
-- ❌ Does NOT write to `schema/` or `sources/`
+- X Does NOT modify body content beyond adding links
+- X Does NOT delete existing links
+- X Does NOT write to `schema/` or `sources/`
 
 Permission level governs action:
 - **Conservative**: Only propose. Don't edit.
