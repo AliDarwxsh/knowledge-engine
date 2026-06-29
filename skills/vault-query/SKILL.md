@@ -132,7 +132,7 @@ End every query with a relevant next-step suggestion:
 
 This skill:
 - ✅ Reads from entire vault
-- ❌ NEVER writes to vault (read-only)
+- X NEVER writes to vault (read-only)
 - Outputs go to chat, not to files
 
 ---
@@ -151,10 +151,10 @@ This skill:
 
 ## What This Skill Does NOT Do
 
-- ❌ Never writes to vault (read-only)
-- ❌ Never transmits vault content beyond the configured AI model
-- ❌ Never modifies note content
-- ❌ Never creates or deletes files
+- X Never writes to vault (read-only)
+- X Never transmits vault content beyond the configured AI model
+- X Never modifies note content
+- X Never creates or deletes files
 
 ---
 

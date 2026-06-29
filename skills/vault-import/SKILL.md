@@ -214,8 +214,8 @@ This skill:
 - ✅ Writes to `sources/_imports/` (immutable staging)
 - ✅ Writes to `00 Inbox/_imported/` (pending sync)
 - ✅ Writes to `wiki/journal/import-logs/` (audit trail)
-- ❌ Does NOT directly write to canonical folders (sync does that)
-- ❌ Does NOT modify or delete the original source file
+- X Does NOT directly write to canonical folders (sync does that)
+- X Does NOT modify or delete the original source file
 
 ---
 
