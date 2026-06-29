@@ -12,7 +12,7 @@ flake8==7.1.0
 mypy==1.10.1
 
 # Security scanner (optional — run: bandit -r scripts/)
-bandit==1.7.9
+bandit==1.9.4
 
 # Dependency vulnerability checker (optional — run: pip-audit)
 pip-audit==2.10.1
