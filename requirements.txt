@@ -15,4 +15,4 @@ mypy==1.10.1
 bandit==1.7.9
 
 # Dependency vulnerability checker (optional — run: pip-audit)
-pip-audit==2.7.3
+pip-audit==2.10.1
