@@ -49,7 +49,7 @@ Frontmatter Audit:
 ⚠️ Missing summary: <files>
 ⚠️ Missing tags: <files>
 ⚠️ Invalid type: <files>
-❌ No frontmatter: <files>
+X No frontmatter: <files>
 ```
 
 ### Check 2: Orphan Detection
@@ -80,7 +80,7 @@ For every note with frontmatter `tags:`:
 ```
 Tag Compliance:
 ✅ Compliant: <N> notes
-❌ Non-compliant tags found: <count>
+X Non-compliant tags found: <count>
    - [[note-1]] uses "fake-tag" → suggest: <closest match or "propose-new-tag">
    - [[note-2]] uses "misc" → suggest: <domain>
 ```
