@@ -1,234 +1,161 @@
 # Knowledge Engine
 
-> **Turn scattered thoughts into a self-organizing knowledge system. 187 structured notes from 342 forgotten AI conversations — automatically.**
+The vault that *reads itself*.
 
----
+You have hundreds of conversations you forgot you had. The decisions you already made, the principles you already wrote, the questions you already answered are inside them. Every new session, you rebuild context from memory. The engine ends that.
 
-You have ideas. They're scattered across notes apps, AI chats, browser tabs, and that one Notion page you opened six months ago. Every session, you rebuild context from memory and forget most of it.
+Knowledge Engine is an open source system that turns scattered input (notes, articles, AI chat exports) into a self-organizing vault. It captures, classifies, links, and grows while you sleep. You stop re-explaining yourself because the system already *remembers*.
 
-**Knowledge Engine fixes that.**
+## The law
 
-It's a vault that holds everything you know, with Hermes sitting on top — reading it, filing it, linking it, and growing it for you. You stop re-explaining yourself every session because the system already remembers.
+Three principles hold the whole design together.
 
-## The 30-Second Pitch
+1. **Files are truth.** No database, no proprietary format, no lock-in. Every note is a markdown file you can open in any editor, forever.
+2. **Bring your own key.** The engine reasons with your AI provider, your API key, your machine. No credits held, no cloud dependency, no other hands on your data.
+3. **The vault is the API.** Every skill, every schedule, every output is a markdown file. Fork a skill, edit a file, change the engine. No build step.
 
-- 📥 **Capture once** — Drop thoughts, articles, any AI chat export. Zero decisions at capture time.
-- 🧠 **Engine classifies** — Reads your input. Routes it to the right folder. Tags it. Links it to related notes.
-- 🔍 **Query anything** — "What did I write about pricing?" Get answers with citations from your own notes.
-- 🌐 **Graph compounds** — Every note strengthens every other note. The vault learns you over time.
-- 🔓 **You own everything** — Plain markdown files. No vendor lock-in. No cloud dependency.
+## What you get
 
-## What You Get
+| Component | What it does |
+| --- | --- |
+| **Dual-layer vault** | Human folders for how you work, a machine layer for how the engine thinks |
+| **10 Hermes skills** | vault-init, vault-capture, vault-sync, vault-lint, vault-digest, vault-import, vault-query, vault-link, vault-morning-brief, vault-forward-refs |
+| **5 scheduled jobs** | Morning brief, inbox processing, connection finding, nightly lint, weekly digest |
+| **One-command setup** | Installs the vault, the skills, and the schedules |
+| **Verification script** | Confirms the engine is wired before you trust it |
 
-| Component | What It Does |
-|-----------|-------------|
-| **Obsidian Vault** | Dual-layer structure: Human folders (00-13) for your workflow, Machine layer (wiki/sources/schema) for AI |
-| **10 Hermes Skills** | vault-init, vault-capture, vault-sync, vault-lint, vault-digest, vault-import, vault-query, vault-link, vault-morning-brief, vault-forward-refs |
-| **5 Cron Jobs** | Morning brief (7am), inbox processor (every 6h), connection finder (3am), nightly lint (2am), weekly digest (Sun 6pm) |
-| **Setup Script** | One command installs everything |
-| **Verification Script** | Confirms the engine is properly wired |
+## Quick start
 
-## Quick Start
+**macOS and Linux**
 
-**macOS / Linux:**
 ```bash
-# 1. Install Hermes (if you don't have it)
-# Download: https://hermes-agent.nousresearch.com (free, open-source)
+# 1. Install Hermes (free, open source)
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
-# 2. Install Obsidian (if you don't have it)
-# Download: https://obsidian.md (free for personal use)
+# 2. Install Obsidian (free for personal use)
+# https://obsidian.md
 
-# 3. Clone this repo
-git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
+# 3. Clone the engine
+git clone https://github.com/AliDarwxsh/knowledge-engine.git
 cd knowledge-engine
 
-# 4. Run setup (scaffolds vault, installs skills, schedules cron)
+# 4. Run setup (scaffolds the vault, installs skills, schedules cron)
 bash scripts/setup.sh       # or: python3 scripts/setup.py
 
-# 5. Open your vault in Obsidian
-# File → Open vault → select the vault path
-
-# 5. Run the one-time init interview
+# 5. Open the vault in Obsidian, then run the init interview
 hermes skill run vault-init
 ```
 
-**Windows (PowerShell or Command Prompt):**
+**Windows**
+
 ```powershell
-# 1. Install Hermes (if you don't have it)
-# Download: https://hermes-agent.nousresearch.com (free, open-source)
+# 1. Install Hermes
 irm https://hermes-agent.nousresearch.com/install.ps1 | iex
 
-# 2. Install Obsidian (if you don't have it)
-# Download: https://obsidian.md (free for personal use)
+# 2. Install Obsidian
+# https://obsidian.md
 
-# 3. Clone this repo
-git clone https://github.com/YOUR_GITHUB_USERNAME/knowledge-engine.git
+# 3. Clone the engine
+git clone https://github.com/AliDarwxsh/knowledge-engine.git
 cd knowledge-engine
 
-# 4. Run setup
-scripts\setup.cmd           # delegates to scripts\setup.py — needs Python 3.8+
+# 4. Run setup (needs Python 3.8+)
+scripts\setup.cmd
 
-# 5. (Optional) Register cron jobs in Windows Task Scheduler
+# 5. Register the scheduled jobs (optional)
 powershell -ExecutionPolicy Bypass -File cron\windows\register-cron.ps1
 
-# 6. Open your vault in Obsidian and run the one-time init interview
+# 6. Open the vault and run the init interview
 hermes skill run vault-init
 ```
 
-> **Windows users:** see [`docs/installation-windows.md`](docs/installation-windows.md) for the full walkthrough. **macOS/Linux users:** see [`docs/getting-started.md`](docs/getting-started.md).
+Windows walkthrough: [docs/installation-windows.md](docs/installation-windows.md). macOS and Linux walkthrough: [docs/getting-started.md](docs/getting-started.md).
 
-That's it. Drop your first thought in `00 Inbox/`. Watch it get classified, tagged, and linked within hours.
+Drop your first thought in `00 Inbox/`. The engine files it while you sleep.
 
-## The Daily Loop
+## The daily loop
 
 ```
-7:00 AM    Morning brief delivered — what happened overnight, what's open
-Morning    Drop thoughts in inbox as they arrive
-Every 6h   Engine processes inbox — classifies, tags, links
-Evening    5-min review: approve, adjust, delete
-2:00 AM    Nightly health check
-3:00 AM    Connection finder proposes new links
-Sunday 6pm Weekly synthesis — cross-domain insights
+7:00 AM    Morning brief. What changed overnight, what is open.
+All day    Drop thoughts in the inbox as they arrive.
+Every 6h   The engine processes the inbox. Classifies, tags, links.
+Evening    Five-minute review. Approve, adjust, delete.
+2:00 AM    Nightly health check.
+3:00 AM    Connection finder proposes new links.
+Sunday     Weekly synthesis. Cross-domain insights.
 ```
 
 ## Architecture
 
 ```
-┌──────────────────────────────────────────────────┐
-│ OBSIDIAN — Storage & Human Surface                │
-│ Plain markdown. Dual-layer vault.                 │
-│ User does: capture, review, decide.               │
-└───────────────────┬──────────────────────────────┘
-                    │ MCP filesystem (read/write)
-┌───────────────────▼──────────────────────────────┐
-│ HERMES — Automation Engine                        │
-│ Skills (workflows) · Cron (scheduling)            │
-│ Memory (vault context) · Sub-agents (parallel)    │
-│ MCP tools (filesystem, web, agentmemory)          │
-└───────────────────┬──────────────────────────────┘
-                    │ User's own API key
-┌───────────────────▼──────────────────────────────┐
-│ AI MODELS — Reasoning                              │
-│ OpenAI · Anthropic · DeepSeek · Qwen · Ollama     │
-│ User configures their provider. Zero cost to us.  │
-└──────────────────────────────────────────────────┘
++--------------------------------------------------+
+| OBSIDIAN     Storage and human surface            |
+| Plain markdown. Dual-layer vault.                 |
+| You: capture, review, decide.                     |
++------------------------+-------------------------+
+                         | MCP filesystem
++------------------------v-------------------------+
+| HERMES       Automation engine                    |
+| Skills, schedules, memory, sub-agents, MCP tools  |
++------------------------+-------------------------+
+                         | Your own API key
++------------------------v-------------------------+
+| AI MODELS    Reasoning                             |
+| OpenAI, Anthropic, DeepSeek, Qwen, Ollama         |
++--------------------------------------------------+
 ```
 
-**Three principles:**
+## Capabilities
 
-1. **Files are truth.** No databases. No proprietary formats. Your notes are markdown files you can open in any editor forever.
+### Chat import
 
-2. **Bring your own key.** The engine uses your AI provider. We never hold credits. We never see your data beyond your local machine.
-
-3. **The vault is the API.** Every skill, every cron job, every output is a markdown file. Community members can fork skills and modify them by editing SKILL.md files. No build step. No compilation.
-
-## What This Engine Is Not
-
-- **Not a SaaS.** You install it locally. You run it locally. You own it.
-- **Not a replacement for Obsidian.** Obsidian is the UI. The engine is the automation.
-- **Not AI-generated nonsense.** Every note goes through the schema's copywriting standards. Quality is enforced.
-- **Not a clone of any AI's memory.** This is YOUR knowledge, structured YOUR way, queryable by any AI you choose.
-
-## The Killer Features
-
-### 1. AI Chat Import
-
-Have 3,000 AI conversations you forgot about? `vault-import` extracts decisions, principles, questions, and knowledge from any chat export — ChatGPT, Claude, DeepSeek, Kimi, or any model that supports exports. Creates structured notes with source citations. Transforms forgotten chat history into searchable knowledge.
+Thousands of AI conversations you forgot. `vault-import` extracts decisions, principles, questions, and knowledge from any chat export (ChatGPT, Claude, DeepSeek, Kimi, any model that exports), with source citations.
 
 ```bash
 /vault-import ~/Downloads/chat-export.zip
 ```
 
-**Result: 187 notes created from 342 conversations. Linked to 53 existing notes.** That's 55% of your scattered conversations turned into structured, interlinked knowledge — in one command.
+The first real run: 187 notes built from 342 conversations, linked to 53 existing notes. 55% of a forgotten history, returned in one command.
 
-### 2. Auto-Classification
+### Auto-classification
 
-Drop a raw thought into the inbox. The engine:
-1. Reads it
-2. Decides: principle? idea? project? research? reference?
-3. Generates frontmatter (title, summary, tags from canonical ontology)
-4. Suggests target folder
-5. Creates the note with wikilinks to 3-5 related notes
+Drop a raw thought in the inbox. The engine reads it, decides what it is (principle, idea, project, research, reference), writes the frontmatter, suggests the folder, and links 3 to 5 related notes. Zero decisions at capture time.
 
-You do zero decision-making at capture time.
+### Adaptive structure
 
-### 3. Adaptive Structure
+The vault learns how you think. After 50 notes it sees the pattern: 23 notes about pricing, want a folder? After 200 it names the emerging themes. Structure follows usage, never a template.
 
-After 50 notes, the engine notices patterns: "You have 23 notes about pricing. Create `04 Knowledge Library/pricing/`?" After 200 notes: "Three emerging themes detected. Want me to create sub-folders?"
+### Forward references
 
-The vault learns how YOU think.
+When the engine meets a concept that should exist, it leaves a gray link. Weekly triage creates the missing note if the concept earned it, or removes the link if it was noise. No invented stubs.
 
-### 4. Forward References
+### Permission levels
 
-When the engine encounters a concept that should exist but doesn't, it creates a gray link. Weekly triage creates the missing note (if 3+ references) or removes the link (if stale).
+Conservative (classify and link, never file without approval), moderate (file, flag uncertainty), aggressive (full autonomy). Change anytime in one file.
 
-No invented stubs. No lost context.
+### Self-repair
 
-### 5. Permission Levels
+Tell the engine what broke. It reads its own source, diagnoses the fault, and fixes itself. No manual repairs, no reinstallation.
 
-Choose your comfort:
+## What this engine is not
 
-- **Conservative** — classify and link, never file without approval
-- **Moderate** — classify, link, and file. Flag anything uncertain.
-- **Aggressive** — full automation. Trust the engine to organize itself.
-
-You can change this anytime by editing `CLAUDE.md`.
-
-### 6. Self-Repairing
-
-If something breaks — a missing folder, a misbehaving skill, a corrupted template — you don't need to debug it. Just tell Hermes:
-
-> "Fix my vault structure."  
-> "The inbox processor stopped working."  
-> "Rebuild the templates I deleted."
-
-Hermes reads its own source code. It knows the architecture. It can diagnose issues and repair the engine itself. No manual fixes. No reinstallation.
+- **Not a SaaS.** Installed locally, run locally, owned by you.
+- **Not a replacement for Obsidian.** Obsidian is the surface. The engine is the automation.
+- **Not AI-generated noise.** Every note passes the vault's quality standards before it lands.
+- **Not a clone of any AI's memory.** This is your knowledge, structured your way, queryable by any AI you choose.
 
 ## Documentation
 
-| Doc | What's Inside |
-|-----|---------------|
-| [docs/getting-started.md](docs/getting-started.md) | Installation, configuration, first capture (macOS/Linux) |
-| [docs/installation-windows.md](docs/installation-windows.md) | Full Windows install walkthrough + Task Scheduler setup |
-| [docs/architecture.md](docs/architecture.md) | How the engine works under the hood |
-| [docs/daily-workflow.md](docs/daily-workflow.md) | What happens each day, hour by hour |
+| Doc | What is inside |
+| --- | --- |
+| [docs/getting-started.md](docs/getting-started.md) | Installation, configuration, first capture |
+| [docs/installation-windows.md](docs/installation-windows.md) | Full Windows walkthrough |
+| [docs/architecture.md](docs/architecture.md) | How the engine works |
+| [docs/daily-workflow.md](docs/daily-workflow.md) | What happens each day |
+| [docs/customization.md](docs/customization.md) | Adapting the engine |
+| [docs/faq.md](docs/faq.md) | Questions and troubleshooting |
+| [docs/FUNCTIONAL_GAPS.md](docs/FUNCTIONAL_GAPS.md) | Known limits, planned improvements |
 
-| [docs/customization.md](docs/customization.md) | How to adapt the engine to your needs |
-| [docs/faq.md](docs/faq.md) | Common questions and troubleshooting |
-| [docs/FUNCTIONAL_GAPS.md](docs/FUNCTIONAL_GAPS.md) | Known limitations and planned improvements |
+## Project
 
-## Built On
-
-- **[Hermes Agent](https://hermes-agent.nousresearch.com/)** — Self-improving open-source agent with skill system, scheduling, memory, and tool execution
-- **[Obsidian](https://obsidian.md/)** — Local-first markdown knowledge base
-- **Your AI provider** — Bring your own API key. Any model you prefer.
-- **Karpathy's LLM Wiki pattern** — The inspiration for the dual-layer architecture
-
-## Contributing
-
-1. Fork the repo
-2. Modify any SKILL.md
-3. Add new cron jobs to `cron/`
-4. Submit a PR
-
-The skills are markdown. The cron jobs are JSON. The vault is markdown. Everything is editable, forkable, and customizable.
-
-## License
-
-MIT — do whatever you want with this.
-
-## Support
-
-- ⭐ Star this repo if it's useful
-- 🐛 Issues for bugs and feature requests
-- 💬 Discussions for questions and ideas
-- ☕ [Sponsor on GitHub](https://github.com/sponsors/YOUR_GITHUB_USERNAME) if you want to support development
-
----
-
----
-
-Built by the Autonomous Second Brain community. Inspired by the original Knowledge Archive. Powered by Hermes Agent.
-
-Version 1.1.1 — released June 2026
+[Contributing](CONTRIBUTING.md), [Security](SECURITY.md), [Changelog](CHANGELOG.md), [License](LICENSE)
